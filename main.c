@@ -71,26 +71,24 @@ int main(int argc, char **argv)
 		}
 	printf("_ _\n");
 	printf("a b\n");
-	}
-/*
-
-
-
-
 
 	// ******************** EXEC REVERSE ROTATE *******************
 	printf("Exec rra rrb (equiv. to rrr):\n");
-	// rvs_rotate(stack_a, 3);
-	// rvs_rotate(stack_b, 3);
-	rrvs_rotate(stack_a, 3, stack_b, 3);
+	// rra(&a);
+	// rrb(&b);
+	rrr(&a, &b);
 	i = 0;
 	while (i < 3)
 		{
-			printf("%d %d\n", stack_a[i], stack_b[i]);
+			printf("%d %d\n", a.data[i], b.data[i]);
 			i++;
 		}
 	printf("_ _\n");
 	printf("a b\n");
+
+	}
+/*
+
 
 	// ******************** EXEC SWAP A *******************
 	printf("Exec sa:\n");
