@@ -86,17 +86,13 @@ int main(int argc, char **argv)
 	printf("_ _\n");
 	printf("a b\n");
 
-	}
-/*
-
-
 	// ******************** EXEC SWAP A *******************
 	printf("Exec sa:\n");
-	swap(stack_a);
-		i = 0;
-		while (i < size_a)
+	sa(&a);
+	i = 0;
+	while (i < 3)
 		{
-			printf("%d %d\n", stack_a[i], stack_b[i]);
+			printf("%d %d\n", a.data[i], b.data[i]);
 			i++;
 		}
 		printf("_ _\n");
@@ -104,18 +100,18 @@ int main(int argc, char **argv)
 
 	// ******************** EXEC PUSH A *3 *******************
 	printf("Exec pa pa pa:\n");
-	push(stack_a, stack_b, &size_a, &size_b);
-	push(stack_a, stack_b, &size_a, &size_b);
-	push(stack_a, stack_b, &size_a, &size_b);
+	pa(&a, &b);
+	pa(&a, &b);
+	pa(&a, &b);
 	i = 0;
-	while (i < size_a)
+	while (i < a.size)
 	{
-		printf("%d\n", stack_a[i]);
+		printf("%d\n", a.data[i]);
 		i++;
 	}
 	printf("_ _\n");
 	printf("a b\n");
-*/
+	}
 	return (0);
 }
 
