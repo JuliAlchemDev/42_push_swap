@@ -186,6 +186,9 @@ int main(int argc, char **argv)
 }
 */
 
+// Implement rotate, double rotate and test the behaviour
+/*
+
 #include <stdio.h>
 
 void rotate(int *stack, int size)
@@ -211,10 +214,10 @@ void double_rotate(int *stack_a, int size_a, int *stack_b, int size_b)
 int main(void)
 {
 	int stack_a[] = {6, 5, 8};
-	int stack_b[] = {3, 2, 1}; 
+	int stack_b[] = {3, 2, 1};
 	int i;
 	i = 0;
-	while (i < 3) 
+	while (i < 3)
 		{
 			printf("%d %d\n", stack_a[i], stack_b[i]);
 			i++;
@@ -227,7 +230,7 @@ int main(void)
 	// rotate(stack_b, 3);
 	double_rotate(stack_a, 3, stack_b, 3);
 	i = 0;
-	while (i < 3) 
+	while (i < 3)
 		{
 			printf("%d %d\n", stack_a[i], stack_b[i]);
 			i++;
@@ -235,3 +238,55 @@ int main(void)
 	printf("_ _\n");
 	printf("a b\n");
 }
+
+*/
+
+// Implement rvs_rotate, double rvs_rotate and test the behaviour
+/*
+void rvs_rotate(int *stack, int size)
+{
+	int temp;
+	int i;
+	temp = stack[size-1];
+	i = size - 1;
+	while(i > 0)
+	{
+		stack[i] = stack[i-1];
+		i--;
+	}
+	stack[0] = temp;
+}
+void double_rvs_rotate(int *stack_a, int size_a, int *stack_b, int size_b)
+{
+	rvs_rotate(stack_a, size_a);
+	rvs_rotate(stack_b, size_b);
+}
+int main(void)
+{
+	int stack_a[] = {5, 8, 6};
+	int stack_b[] = {2, 1, 3};
+	int i;
+	i = 0;
+	while (i < 3)
+		{
+			printf("%d %d\n", stack_a[i], stack_b[i]);
+			i++;
+		}
+	printf("_ _\n");
+	printf("a b\n");
+
+	printf("Exec rra rrb (equiv. to rrr):\n");
+	// rvs_rotate(stack_a, 3);
+	// rvs_rotate(stack_b, 3);
+	double_rvs_rotate(stack_a, 3, stack_b, 3);
+	i = 0;
+	while (i < 3)
+		{
+			printf("%d %d\n", stack_a[i], stack_b[i]);
+			i++;
+		}
+	printf("_ _\n");
+	printf("a b\n");
+}
+*/
+
