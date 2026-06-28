@@ -28,22 +28,22 @@ int main(int argc, char **argv)
 		}
 		printf("_ _\n");
 		printf("a b\n");
-	}
-/*
 
-// ******************** EXEC SWAP A *******************
+		// ******************** EXEC SWAP A *******************
 
 		printf("Exec sa:\n");
-		swap(stack_a);
+		sa(&a);
 		i = 0;
 
-		while (i < size_a)
+		while (i < a.size)
 		{
-			printf("%d\n", stack_a[i]);
+			printf("%d\n", a.data[i]);
 			i++;
 		}
 		printf("_ _\n");
 		printf("a b\n");
+	}
+/*
 
 
 // ******************** EXEC PUSH B *3 *******************
