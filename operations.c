@@ -1,17 +1,25 @@
 #include "push_swap.h"
 
-void	swap(int stack[])
+void	swap(t_stack *stack)
 {
 	int temp;
-	temp = stack[0];
-	stack[0] = stack[1];
-	stack[1] = temp;
+	temp = stack->data[0];
+	stack->data[0] = stack->data[1];
+	stack->data[1] = temp;
 }
 
-void	s_swap(int *stack_a, int *stack_b)
+void sa(t_stack *a)
 {
-	swap(stack_a);
-	swap(stack_b);
+	swap(a);
+}
+void sb(t_stack *b)
+{
+	swap(b);
+}
+void ss(t_stack *a, t_stack *b)
+{
+	swap(a);
+	swap(b);
 }
 
 void	push(int *stack_in, int *stack_out, int *size_in, int *size_out)
