@@ -54,25 +54,37 @@ void pb(t_stack *b, t_stack *a)
 	push(b, a);
 }
 
-void	rotate(int *stack, int size)
+void	rotate(t_stack *stack)
 {
 	int temp;
 	int i;
-	temp = stack[0];
+	int size;
+
+	size = stack->size;
+	temp = stack->data[0];
 	i = 0;
 	while(i < size - 1)
 	{
-		stack[i] = stack[i+1];
+		stack->data[i] = stack->data[i+1];
 		i++;
 	}
-	stack[size - 1] = temp;
+	stack->data[size - 1] = temp;
 }
 
-void	rrotate(int *stack_a, int size_a, int *stack_b, int size_b)
+void ra(t_stack *a)
 {
-	rotate(stack_a, size_a);
-	rotate(stack_b, size_b);
+	rotate(a);
 }
+void rb(t_stack *b)
+{
+	rotate(b);
+}
+void rr(t_stack *a, t_stack *b)
+{
+	rotate(a);
+	rotate(b);
+}
+
 
 void	rvs_rotate(int *stack, int size)
 {
