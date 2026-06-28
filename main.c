@@ -42,26 +42,26 @@ int main(int argc, char **argv)
 		}
 		printf("_ _\n");
 		printf("a b\n");
-	}
-/*
 
-
-// ******************** EXEC PUSH B *3 *******************
-		stack_b = (int *)malloc(size_a * sizeof(int));
+	// ******************** EXEC PUSH B *3 *******************
+		b.data = (int *)malloc(a.size * sizeof(int));
 		printf("Exec pb pb pb:\n");
-		push(stack_b, stack_a, &size_b, &size_a);
-		push(stack_b, stack_a, &size_b, &size_a);
-		push(stack_b, stack_a, &size_b, &size_a);
-
+		pb(&b, &a);
+		pb(&b, &a);
+		pb(&b, &a);
 		i = 0;
-
-		while (i < size_a) // ⚠️ Caution ⚠️
+		while (i < a.size) // ⚠️ Caution ⚠️
 		{
-			printf("%d %d\n", stack_a[i], stack_b[i]);
+			printf("%d %d\n", a.data[i], b.data[i]);
 			i++;
 		}
 		printf("_ _\n");
 		printf("a b\n");
+
+	}
+/*
+
+
 
 	// ******************** EXEC ROTATE *******************
 	printf("Exec ra rb (equiv. to rr):\n");
