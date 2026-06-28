@@ -22,27 +22,36 @@ void ss(t_stack *a, t_stack *b)
 	swap(b);
 }
 
-void	push(int *stack_in, int *stack_out, int *size_in, int *size_out)
+void	push(t_stack *stack_in, t_stack *stack_out)
 {
     int	i;
 
-    if (*size_out == 0)
+    if (stack_out->size == 0)
         return ;
-    i = *size_in;
+    i = stack_in->size;
     while (i > 0)
     {
-        stack_in[i] = stack_in[i - 1];
+        stack_in->data[i] = stack_in->data[i - 1];
         i--;
     }
-    stack_in[0] = stack_out[0];
+    stack_in->data[0] = stack_out->data[0];
     i = 0;
-    while (i < *size_out - 1)
+    while (i < stack_out->size - 1)
     {
-        stack_out[i] = stack_out[i + 1];
+        stack_out->data[i] = stack_out->data[i + 1];
         i++;
     }
-    (*size_in)++;
-    (*size_out)--;
+    (stack_in->size)++;
+    (stack_out->size)--;
+}
+
+void pa(t_stack *a, t_stack *b)
+{
+	push(a, b);
+}
+void pb(t_stack *b, t_stack *a)
+{
+	push(b, a);
 }
 
 void	rotate(int *stack, int size)
