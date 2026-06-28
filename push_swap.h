@@ -6,6 +6,11 @@
 # include <stdlib.h>
 // DELETE !
 
+typedef struct s_stack {
+    int *data;
+    int size;
+} t_stack;
+
 // Operation functions
 
 void	swap(int *stack);
