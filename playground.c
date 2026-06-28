@@ -1,95 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-// Print initial stack_a, apply swap and print result
-
-void swap(int stack[])
+void	swap(int stack[])
 {
 	int temp;
 	temp = stack[0];
 	stack[0] = stack[1];
 	stack[1] = temp;
 }
-/*
-int	main(void){
-	int stack_a[] = {2, 1, 3, 6, 5, 8};
-	int size = 6;
-	int i;
 
-	i = 0;
-	printf("Init a and b:\n");
-	while (i < size)
-	{
-		printf("%d\n", stack_a[i]);
-		i++;
-	}
-	printf("- -\n");
-	printf("a b\n");
-
-	swap(stack_a);
-
-	i = 0;
-	while (i < size)
-	{
-		printf("%d\n", stack_a[i]);
-		i++;
-	}
-	printf("- -\n");
-	printf("a b\n");
-	return (0);
-}
-*/
-
-// Replace hardcoded stack_a with argv input, print results
-
-/*
-#include <stdlib.h>
-
-int main(int argc, char **argv)
+void	s_swap(int *stack_a, int *stack_b)
 {
-	int *stack_a;
-	int size_a;
-	int i;
-
-	i = 0;
-	if (argc > 1)
-	{
-		size_a = argc - 1;
-		stack_a = (int *)malloc(size_a * sizeof(int));
-		if (!stack_a)
-			return (1);
-		else
-		{
-			printf("Init a and b:\n");
-			while(i < size_a)
-			{
-				stack_a[i] = atoi(argv[i+1]);
-				printf("%d\n", stack_a[i]);
-				i++;
-			}
-		}
-		printf("_ _\n");
-		printf("a b\n");
-
-// ******************** EXEC SWAP A *******************
-
-		printf("Exec sa:\n");
-		swap(stack_a);
-		i = 0;
-
-		while (i < size_a)
-		{
-			printf("%d\n", stack_a[i]);
-			i++;
-		}
-		printf("_ _\n");
-		printf("a b\n");
-	}
-	return (0);
+	swap(stack_a);
+	swap(stack_b);
 }
-*/
 
-// Push top element from stack_out to stack_in
-/*
 void	push(int *stack_in, int *stack_out, int *size_in, int *size_out)
 {
     int	i;
@@ -112,12 +37,48 @@ void	push(int *stack_in, int *stack_out, int *size_in, int *size_out)
     (*size_in)++;
     (*size_out)--;
 }
-*/
+
+void rotate(int *stack, int size)
+{
+	int temp;
+	int i;
+	temp = stack[0];
+	i = 0;
+	while(i < size - 1)
+	{
+		stack[i] = stack[i+1];
+		i++;
+	}
+	stack[size - 1] = temp;
+}
+
+void	rrotate(int *stack_a, int size_a, int *stack_b, int size_b)
+{
+	rotate(stack_a, size_a);
+	rotate(stack_b, size_b);
+}
+
+void	rvs_rotate(int *stack, int size)
+{
+	int temp;
+	int i;
+	temp = stack[size-1];
+	i = size - 1;
+	while(i > 0)
+	{
+		stack[i] = stack[i-1];
+		i--;
+	}
+	stack[0] = temp;
+}
+void	rrvs_rotate(int *stack_a, int size_a, int *stack_b, int size_b)
+{
+	rvs_rotate(stack_a, size_a);
+	rvs_rotate(stack_b, size_b);
+}
 
 
-// Add stack_b and apply push operation three times
-/*
-#include <stdlib.h>
+// int stack_a[] = {2, 1, 3, 6, 5, 8};
 
 int main(int argc, char **argv)
 {
@@ -164,6 +125,7 @@ int main(int argc, char **argv)
 		printf("_ _\n");
 		printf("a b\n");
 
+
 // ******************** EXEC PUSH B *3 *******************
 		stack_b = (int *)malloc(size_a * sizeof(int));
 		printf("Exec pb pb pb:\n");
@@ -180,92 +142,12 @@ int main(int argc, char **argv)
 		}
 		printf("_ _\n");
 		printf("a b\n");
-	}
 
-	return (0);
-}
-*/
-
-// Implement rotate, double rotate and test the behaviour
-/*
-
-#include <stdio.h>
-
-void rotate(int *stack, int size)
-{
-	int temp;
-	int i;
-	temp = stack[0];
-	i = 0;
-	while(i < size - 1)
-	{
-		stack[i] = stack[i+1];
-		i++;
-	}
-	stack[size - 1] = temp;
-}
-
-void double_rotate(int *stack_a, int size_a, int *stack_b, int size_b)
-{
-	rotate(stack_a, size_a);
-	rotate(stack_b, size_b);
-}
-
-int main(void)
-{
-	int stack_a[] = {6, 5, 8};
-	int stack_b[] = {3, 2, 1};
-	int i;
-	i = 0;
-	while (i < 3)
-		{
-			printf("%d %d\n", stack_a[i], stack_b[i]);
-			i++;
-		}
-	printf("_ _\n");
-	printf("a b\n");
-
+	// ******************** EXEC ROTATE *******************
 	printf("Exec ra rb (equiv. to rr):\n");
 	// rotate(stack_a, 3);
 	// rotate(stack_b, 3);
-	double_rotate(stack_a, 3, stack_b, 3);
-	i = 0;
-	while (i < 3)
-		{
-			printf("%d %d\n", stack_a[i], stack_b[i]);
-			i++;
-		}
-	printf("_ _\n");
-	printf("a b\n");
-}
-
-*/
-
-// Implement rvs_rotate, double rvs_rotate and test the behaviour
-/*
-void rvs_rotate(int *stack, int size)
-{
-	int temp;
-	int i;
-	temp = stack[size-1];
-	i = size - 1;
-	while(i > 0)
-	{
-		stack[i] = stack[i-1];
-		i--;
-	}
-	stack[0] = temp;
-}
-void double_rvs_rotate(int *stack_a, int size_a, int *stack_b, int size_b)
-{
-	rvs_rotate(stack_a, size_a);
-	rvs_rotate(stack_b, size_b);
-}
-int main(void)
-{
-	int stack_a[] = {5, 8, 6};
-	int stack_b[] = {2, 1, 3};
-	int i;
+	rrotate(stack_a, 3, stack_b, 3);
 	i = 0;
 	while (i < 3)
 		{
@@ -275,10 +157,11 @@ int main(void)
 	printf("_ _\n");
 	printf("a b\n");
 
+	// ******************** EXEC REVERSE ROTATE *******************
 	printf("Exec rra rrb (equiv. to rrr):\n");
 	// rvs_rotate(stack_a, 3);
 	// rvs_rotate(stack_b, 3);
-	double_rvs_rotate(stack_a, 3, stack_b, 3);
+	rrvs_rotate(stack_a, 3, stack_b, 3);
 	i = 0;
 	while (i < 3)
 		{
@@ -287,6 +170,34 @@ int main(void)
 		}
 	printf("_ _\n");
 	printf("a b\n");
-}
-*/
 
+	// ******************** EXEC SWAP A *******************
+	printf("Exec sa:\n");
+	swap(stack_a);
+		i = 0;
+		while (i < size_a)
+		{
+			printf("%d %d\n", stack_a[i], stack_b[i]);
+			i++;
+		}
+		printf("_ _\n");
+		printf("a b\n");
+
+	// ******************** EXEC PUSH A *3 *******************
+	printf("Exec pa pa pa:\n");
+	push(stack_a, stack_b, &size_a, &size_b);
+	push(stack_a, stack_b, &size_a, &size_b);
+	push(stack_a, stack_b, &size_a, &size_b);
+	i = 0;
+	while (i < size_a)
+	{
+		printf("%d\n", stack_a[i]);
+		i++;
+	}
+	printf("_ _\n");
+	printf("a b\n");
+	}
+	return (0);
+}
+
+// gcc -Wall -Wextra -Werror playground.c -o test && ./test 2 1 3 6 5 8
