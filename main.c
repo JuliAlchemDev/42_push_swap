@@ -6,34 +6,30 @@
 
 int main(int argc, char **argv)
 {
-	int *stack_a;
-	int *stack_b;
-	int size_a;
-	int size_b;
+	t_stack a;
+	t_stack b;
 	int i;
 
-	size_b = 0;
+	b.size = 0;
+	b.data = NULL;
 	i = 0;
 	if (argc > 1)
 	{
-		size_a = argc - 1;
-		stack_a = (int *)malloc(size_a * sizeof(int));
-		if (!stack_a)
+		a.size = argc - 1;
+		a.data = (int *)malloc(a.size * sizeof(int));
+		if (!a.data)
 			return (1);
-		else
+		printf("Init a and b:\n");
+		while(i < a.size)
 		{
-			printf("Init a and b:\n");
-			while(i < size_a)
-			{
-				stack_a[i] = atoi(argv[i+1]);
-				printf("%d\n", stack_a[i]);
-				i++;
-			}
-
+			a.data[i] = atoi(argv[i+1]);
+			printf("%d\n", a.data[i]);
+			i++;
 		}
-
 		printf("_ _\n");
 		printf("a b\n");
+	}
+/*
 
 // ******************** EXEC SWAP A *******************
 
@@ -120,7 +116,7 @@ int main(int argc, char **argv)
 	}
 	printf("_ _\n");
 	printf("a b\n");
-	}
+*/
 	return (0);
 }
 
