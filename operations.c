@@ -86,21 +86,33 @@ void rr(t_stack *a, t_stack *b)
 }
 
 
-void	rvs_rotate(int *stack, int size)
+void	rvs_rotate(t_stack *stack)
 {
 	int temp;
 	int i;
-	temp = stack[size-1];
+	int size;
+
+	size = stack->size;
+	temp = stack->data[size-1];
 	i = size - 1;
 	while(i > 0)
 	{
-		stack[i] = stack[i-1];
+		stack->data[i] = stack->data[i-1];
 		i--;
 	}
-	stack[0] = temp;
+	stack->data[0] = temp;
 }
-void	rrvs_rotate(int *stack_a, int size_a, int *stack_b, int size_b)
+
+void rra(t_stack *a)
 {
-	rvs_rotate(stack_a, size_a);
-	rvs_rotate(stack_b, size_b);
+	rvs_rotate(a);
+}
+void rrb(t_stack *b)
+{
+	rvs_rotate(b);
+}
+void rrr(t_stack *a, t_stack *b)
+{
+	rvs_rotate(a);
+	rvs_rotate(b);
 }
