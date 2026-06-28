@@ -13,12 +13,17 @@ typedef struct s_stack {
 
 // Operation functions
 
-void	swap(int *stack);
-void	s_swap(int *stack_a, int *stack_b);
 void	push(int *stack_in, int *stack_out, int *size_in, int *size_out);
 void    rotate(int *stack, int size);
 void	rrotate(int *stack_a, int size_a, int *stack_b, int size_b);
 void	rvs_rotate(int *stack, int size);
 void	rrvs_rotate(int *stack_a, int size_a, int *stack_b, int size_b);
+
+void	swap(t_stack *stack);
+
+void sa(t_stack *a);
+void sb(t_stack *b);
+void ss(t_stack *a, t_stack *b);
+
 
 #endif
