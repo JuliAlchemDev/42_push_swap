@@ -43,7 +43,7 @@ $(LIBFT):
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(FLAGS) $^ -o $@
 
-.PHONY: clean
+.PHONY: all clean fclean re
 
 clean:
 	$(RM) $(OBJS)
