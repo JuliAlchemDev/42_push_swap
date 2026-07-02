@@ -32,15 +32,20 @@ static void	rvs_rotate(t_stack *stack)
 void	rra(t_stack *a)
 {
 	rvs_rotate(a);
+	ft_putendl_fd("rra", 1);
 }
 
 void	rrb(t_stack *b)
 {
 	rvs_rotate(b);
+	ft_putendl_fd("rrb", 1);
+
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
 	rvs_rotate(a);
 	rvs_rotate(b);
+	ft_putendl_fd("rrr", 1);
+
 }

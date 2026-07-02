@@ -20,22 +20,25 @@ static void	swap(t_stack *stack)
 	{
 		temp = stack->data[0];
 		stack->data[0] = stack->data[1];
-		stack->data[1] = temp;	
+		stack->data[1] = temp;
 	}
 }
 
 void	sa(t_stack *a)
 {
 	swap(a);
+	ft_putendl_fd("sa", 1);
 }
 
 void	sb(t_stack *b)
 {
 	swap(b);
+	ft_putendl_fd("sb", 1);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
+	ft_putendl_fd("ss", 1);
 }
