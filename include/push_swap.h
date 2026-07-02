@@ -27,6 +27,8 @@ int				ft_strcmp(const char *s1, const char *s2);
 t_parsed_input	input_parser(int argc, char *argv[]);
 void			error(void);
 
+// For testing, delete when finish
+t_stack *create_stack(size_t size);
 // Algorithms
 void	insertion_sort(t_stack *a);
 
