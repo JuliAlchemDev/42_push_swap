@@ -22,6 +22,12 @@ int	main(int argc, char *argv[])
 	a = parsed_input.stack;
 	b = load_stack(a->size, NULL);
 	display_stacks(a, b);
+
+	printf("Disorder: %0.2f\n", compute_disorder(a));
+	insertion_sort(a);
+	display_stacks(a, b);
+	printf("Disorder: %0.2f\n", compute_disorder(a));
+
 	clear_stack(a);
 	clear_stack(b);
 	return (0);
