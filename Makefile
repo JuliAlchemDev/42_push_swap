@@ -7,7 +7,7 @@ DEP_DIR = ./include
 SRCS = \
        srcs/main.c \
        srcs/clear_stack.c \
-	   srcs/disorder.c \
+	   srcs/compute_disorder.c \
 	   srcs/error.c \
        srcs/load_stack.c \
 	   srcs/input_parser.c \

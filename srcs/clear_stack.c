@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 18:36:19 by aserio            #+#    #+#             */
-/*   Updated: 2026/06/30 16:46:26 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/03 16:40:57 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	clear_stack(t_stack *stack)
 	if (stack)
 	{
 		free(stack->data);
-		free(stack);		
+		free(stack);
 	}
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder.c                                         :+:      :+:    :+:   */
+/*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:55:12 by aserio            #+#    #+#             */
-/*   Updated: 2026/06/29 15:54:32 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/03 16:49:19 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-float compute_disorder(t_stack *stack)
+float	compute_disorder(t_stack *stack)
 {
 	size_t	mistakes;
 	size_t	total_pairs;
@@ -28,7 +28,7 @@ float compute_disorder(t_stack *stack)
 		while (j < stack->size)
 		{
 			total_pairs++;
-			if(stack->data[i] > stack->data[j])
+			if (stack->data[i] > stack->data[j])
 				mistakes++;
 			j++;
 		}
