@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   select_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 17:59:01 by aserio            #+#    #+#             */
-/*   Updated: 2026/06/30 16:42:44 by aserio           ###   ########.fr       */
+/*   Created: 2026/07/01 11:02:52 by aserio            #+#    #+#             */
+/*   Updated: 2026/07/03 18:08:32 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	swap(t_stack *stack)
+void	select_sort(t_stack *a, t_stack *b, char strategy[], int bench_flag)
 {
-	int	temp;
+	t_bench_data	bench_data;
 
-	if (stack->size > 1)
-	{
-		temp = stack->data[0];
-		stack->data[0] = stack->data[1];
-		stack->data[1] = temp;
-	}
-}
-
-void	sa(t_stack *a)
-{
-	swap(a);
-	ft_putendl_fd("sa", 1);
-}
-
-void	sb(t_stack *b)
-{
-	swap(b);
-	ft_putendl_fd("sb", 1);
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	ft_putendl_fd("ss", 1);
+	bench_data.disorder = compute_disorder(a);
+	bench_data.strategy = strategy;
+	if ((ft_strcmp(strategy, "--simple") == 0)
+		|| ((ft_strcmp(strategy, "--adaptive") == 0)
+			&& bench_data.disorder <= 0.2))
+		insertion_sort(a, b, bench_flag, &bench_data);
 }

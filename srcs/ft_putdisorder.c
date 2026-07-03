@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putdisorder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 17:59:01 by aserio            #+#    #+#             */
-/*   Updated: 2026/06/30 16:42:44 by aserio           ###   ########.fr       */
+/*   Created: 2026/07/01 17:38:13 by aserio            #+#    #+#             */
+/*   Updated: 2026/07/03 18:30:10 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	swap(t_stack *stack)
+void	ft_putdisorder(float d)
 {
-	int	temp;
+	int	decimals;
 
-	if (stack->size > 1)
-	{
-		temp = stack->data[0];
-		stack->data[0] = stack->data[1];
-		stack->data[1] = temp;
-	}
-}
-
-void	sa(t_stack *a)
-{
-	swap(a);
-	ft_putendl_fd("sa", 1);
-}
-
-void	sb(t_stack *b)
-{
-	swap(b);
-	ft_putendl_fd("sb", 1);
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	ft_putendl_fd("ss", 1);
+	ft_putstr_fd("[bench] disorder: ", 2);
+	ft_putnbr_fd((int)(d * 100), 2);
+	ft_putchar_fd('.', 2);
+	decimals = ((int)(d * 10000)) % 100;
+	if (decimals < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(decimals, 2);
+	ft_putendl_fd("%", 2);
 }

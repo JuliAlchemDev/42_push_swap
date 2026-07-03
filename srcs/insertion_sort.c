@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 17:59:01 by aserio            #+#    #+#             */
-/*   Updated: 2026/06/30 16:42:44 by aserio           ###   ########.fr       */
+/*   Created: 2026/07/03 16:42:36 by iualkhim          #+#    #+#             */
+/*   Updated: 2026/07/03 18:07:20 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	swap(t_stack *stack)
+void	insertion_sort(t_stack *a, t_stack *b, int bench_flag,
+						t_bench_data *bench_data)
 {
-	int	temp;
+	size_t	count_rot;
 
-	if (stack->size > 1)
+	while (a->size >= 1)
 	{
-		temp = stack->data[0];
-		stack->data[0] = stack->data[1];
-		stack->data[1] = temp;
+		count_rot = 0;
+		while (a->data[0] < b->data[0] && count_rot < b->size)
+		{
+			rb(b);
+			count_rot++;
+		}
+		pb(b, a);
+		while (count_rot > 0)
+		{
+			rrb(b);
+			count_rot--;
+		}
 	}
-}
-
-void	sa(t_stack *a)
-{
-	swap(a);
-	ft_putendl_fd("sa", 1);
-}
-
-void	sb(t_stack *b)
-{
-	swap(b);
-	ft_putendl_fd("sb", 1);
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	ft_putendl_fd("ss", 1);
+	while (b->size > 0)
+		pa(a, b);
+	if (bench_flag)
+		ft_putbench(bench_data);
 }

@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 18:16:15 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/01 10:33:56 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/03 16:40:39 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_duplicated(char num[], int *data, size_t size)
 		i = 0;
 		while ((i < size - 1) && (n != data[i]))
 			i++;
-		return (n == data[i]);	
+		return (n == data[i]);
 	}
 	return (0);
 }
