@@ -11,8 +11,10 @@ SRCS = \
 	   srcs/error.c \
        srcs/load_stack.c \
 	   srcs/input_parser.c \
+	   srcs/insertion_sort.c \
        srcs/push.c \
        srcs/rotate.c \
+       srcs/rotate_reverse.c \
        srcs/swap.c \
 	   srcs/is_valid_int.c \
 	   srcs/ft_strcmp.c \
