@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-float	compute_disorder(t_stack *stack)
+float compute_disorder(t_stack *stack)
 {
 	size_t	mistakes;
 	size_t	total_pairs;
@@ -22,16 +22,17 @@ float	compute_disorder(t_stack *stack)
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;
-	j = 0;
 	while (i < stack->size - 1)
 	{
+		j = i + 1;
 		while (j < stack->size)
 		{
-			mistakes = stack->data[i] > stack->data[j];
 			total_pairs++;
+			if(stack->data[i] > stack->data[j])
+				mistakes++;
 			j++;
 		}
 		i++;
 	}
-	return ((float) mistakes / (float) total_pairs);
+	return ((float)mistakes / (float)total_pairs);
 }
