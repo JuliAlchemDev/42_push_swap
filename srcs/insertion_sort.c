@@ -6,24 +6,21 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 16:42:36 by iualkhim          #+#    #+#             */
-/*   Updated: 2026/07/03 16:52:44 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/03 18:07:20 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	insertion_sort(t_stack *a)
+void	insertion_sort(t_stack *a, t_stack *b, int bench_flag,
+						t_bench_data *bench_data)
 {
-	t_stack	*b;
 	size_t	count_rot;
-	size_t	limit;
 
-	b = create_stack(a->size);
 	while (a->size >= 1)
 	{
 		count_rot = 0;
-		limit = b->size;
-		while (a->data[0] < b->data[0] && count_rot < limit)
+		while (a->data[0] < b->data[0] && count_rot < b->size)
 		{
 			rb(b);
 			count_rot++;
@@ -37,5 +34,6 @@ void	insertion_sort(t_stack *a)
 	}
 	while (b->size > 0)
 		pa(a, b);
-	clear_stack(b);
+	if (bench_flag)
+		ft_putbench(bench_data);
 }

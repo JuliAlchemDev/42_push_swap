@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 16:36:06 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/03 18:11:21 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@ int				is_valid_int(char *s);
 int				ft_strcmp(const char *s1, const char *s2);
 t_parsed_input	input_parser(int argc, char *argv[]);
 void			error(void);
-
-t_stack			*create_stack(size_t size);
+void			ft_putdisorder(float d);
 float			compute_disorder(t_stack *stack);
+void			ft_putbench(t_bench_data *bench_data);
+void			select_sort(t_stack *a, t_stack *b, char strategy[],
+					int bench_flag);
 
 // Algorithms
-void			insertion_sort(t_stack *a);
+
+void			insertion_sort(t_stack *a, t_stack *b, int bench_flag,
+					t_bench_data *bench_data);
 
 // Operation functions
 

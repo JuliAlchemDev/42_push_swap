@@ -5,19 +5,22 @@ OBJ_DIR = ./obj
 LIB_DIR = ./Libft
 DEP_DIR = ./include
 SRCS = \
-       srcs/main.c \
        srcs/clear_stack.c \
 	   srcs/compute_disorder.c \
 	   srcs/error.c \
-       srcs/load_stack.c \
+	   srcs/ft_putbench.c \
+	   srcs/ft_putdisorder.c \
+	   srcs/ft_strcmp.c \
 	   srcs/input_parser.c \
 	   srcs/insertion_sort.c \
-       srcs/push.c \
-       srcs/rotate.c \
-       srcs/rotate_reverse.c \
-       srcs/swap.c \
 	   srcs/is_valid_int.c \
-	   srcs/ft_strcmp.c \
+       srcs/load_stack.c \
+       srcs/main.c \
+       srcs/push.c \
+       srcs/rotate_reverse.c \
+       srcs/rotate.c \
+	   srcs/select_sort.c \
+       srcs/swap.c \
        utils/putstack.c \
 	   utils/display_stacks.c
 
