@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../Libft/libft.h"
+# include "../libftprintf/ft_printf.h"
 # include "structs.h"
 # include <stdlib.h>
 # include <stdio.h>

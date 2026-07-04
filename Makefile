@@ -3,6 +3,7 @@ NAME = push_swap
 SRC_DIR = ./srcs
 OBJ_DIR = ./obj
 LIB_DIR = ./Libft
+PRINTF_DIR = ./libftprintf
 DEP_DIR = ./include
 SRCS = \
        srcs/clear_stack.c \
@@ -26,6 +27,7 @@ SRCS = \
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 LIBFT = $(LIB_DIR)/libft.a
+LIBPRINTF = $(PRINTF_DIR)/libftprintf.a
 DEPS = $(DEP_DIR)/push_swap.h
 
 CC = cc
@@ -45,7 +47,10 @@ $(OBJ_DIR)/%.o: %.c $(DEPS) | $(OBJ_DIR)
 $(LIBFT):
 	$(MAKE) -C $(LIB_DIR)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(LIBPRINTF):
+	$(MAKE) -C $(PRINTF_DIR)
+
+$(NAME): $(OBJS) $(LIBFT) $(LIBPRINTF)
 	$(CC) $(FLAGS) $^ -o $@
 
 .PHONY: all clean fclean re
