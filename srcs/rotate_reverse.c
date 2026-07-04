@@ -29,21 +29,24 @@ static void	rvs_rotate(t_stack *stack)
 	stack->data[0] = temp;
 }
 
-void	rra(t_stack *a)
+int	rra(t_stack *a)
 {
 	rvs_rotate(a);
 	ft_putendl_fd("rra", 1);
+	return (1);
 }
 
-void	rrb(t_stack *b)
+int	rrb(t_stack *b)
 {
 	rvs_rotate(b);
 	ft_putendl_fd("rrb", 1);
+	return (1);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+int	rrr(t_stack *a, t_stack *b)
 {
 	rvs_rotate(a);
 	rvs_rotate(b);
 	ft_putendl_fd("rrr", 1);
+	return (1);
 }

@@ -24,21 +24,24 @@ static void	swap(t_stack *stack)
 	}
 }
 
-void	sa(t_stack *a)
+int	sa(t_stack *a)
 {
 	swap(a);
 	ft_putendl_fd("sa", 1);
+	return (1);
 }
 
-void	sb(t_stack *b)
+int	sb(t_stack *b)
 {
 	swap(b);
 	ft_putendl_fd("sb", 1);
+	return (1);
 }
 
-void	ss(t_stack *a, t_stack *b)
+int	ss(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
 	ft_putendl_fd("ss", 1);
+	return (1);
 }

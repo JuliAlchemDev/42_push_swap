@@ -37,14 +37,16 @@ static void	push(t_stack *stack_in, t_stack *stack_out)
 	(stack_out->size)--;
 }
 
-void	pa(t_stack *a, t_stack *b)
+int	pa(t_stack *a, t_stack *b)
 {
 	push(a, b);
 	ft_putendl_fd("pa", 1);
+	return (1);
 }
 
-void	pb(t_stack *b, t_stack *a)
+int	pb(t_stack *b, t_stack *a)
 {
 	push(b, a);
 	ft_putendl_fd("pb", 1);
+	return (1);
 }
