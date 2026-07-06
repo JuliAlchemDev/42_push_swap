@@ -12,28 +12,26 @@
 
 #include "../include/push_swap.h"
 
-void	insertion_sort(t_stack *a, t_stack *b, int bench_flag,
-						t_bench_data *bench_data)
+void	insertion_sort(t_stack *a, t_stack *b, t_bench_data *bench_data)
 {
 	size_t	count_rot;
 
+	count_rot = 0;
 	while (a->size >= 1)
 	{
 		count_rot = 0;
 		while (a->data[0] < b->data[0] && count_rot < b->size)
 		{
-			rb(b);
+			bench_data->rb += rb(b);
 			count_rot++;
 		}
-		pb(b, a);
+		bench_data->pb += pb(b, a);
 		while (count_rot > 0)
 		{
-			rrb(b);
+			bench_data->rrb += rrb(b);
 			count_rot--;
 		}
 	}
 	while (b->size > 0)
-		pa(a, b);
-	if (bench_flag)
-		ft_putbench(bench_data);
+		bench_data->pa += pa(a, b);
 }
