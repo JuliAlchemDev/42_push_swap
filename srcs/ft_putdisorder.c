@@ -14,14 +14,14 @@
 
 void	ft_putdisorder(float d)
 {
-	int	decimals;
+	int int_part;
+	int dec_part;
 
-	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_putnbr_fd((int)(d * 100), 2);
-	ft_putchar_fd('.', 2);
-	decimals = ((int)(d * 10000)) % 100;
-	if (decimals < 10)
-		ft_putchar_fd('0', 2);
-	ft_putnbr_fd(decimals, 2);
-	ft_putendl_fd("%", 2);
+	int_part = (int)(d * 100);
+	dec_part = ((int)(d * 10000)) % 100;
+	ft_printf("[bench] disorder: ");
+	if (dec_part < 10)
+		ft_printf("%d.0%d%%\n", int_part, dec_part);
+	else
+		ft_printf("%d.%d%%\n", int_part, dec_part);
 }
