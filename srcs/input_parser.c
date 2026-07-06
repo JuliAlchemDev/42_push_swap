@@ -48,7 +48,7 @@ static t_stack	*get_stack(int size, char **nums)
 t_parsed_input	input_parser(int argc, char *argv[])
 {
 	int				i;
-	t_parsed_input	parsed_input;
+	t_parsed_input	parsed_input = {0};
 
 	i = 1;
 	while ((is_strategy(argv[i]))
