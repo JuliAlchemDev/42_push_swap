@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 18:22:24 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/20 12:49:02 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "structs.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 void			clear_stack(t_stack *s);
 void			display_stacks(t_context *ctx);

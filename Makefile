@@ -6,6 +6,7 @@ LIB_DIR = ./Libft
 PRINTF_DIR = ./libftprintf
 DEP_DIR = ./include
 SRCS = \
+	   srcs/bucket_sort.c \
        srcs/clear_stack.c \
 	   srcs/compute_disorder.c \
 	   srcs/error.c \
