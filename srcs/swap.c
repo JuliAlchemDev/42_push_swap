@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:59:01 by aserio            #+#    #+#             */
-/*   Updated: 2026/06/30 16:42:44 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 15:10:01 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@ static void	swap(t_stack *stack)
 	}
 }
 
-int	sa(t_stack *a)
+void	sa(t_context *ctx)
 {
-	swap(a);
+	swap(ctx->a);
+	ctx->sa++;
 	ft_putendl_fd("sa", 1);
-	return (1);
 }
 
-int	sb(t_stack *b)
+void	sb(t_context *ctx)
 {
-	swap(b);
+	swap(ctx->b);
+	ctx->sb++;
 	ft_putendl_fd("sb", 1);
-	return (1);
 }
 
-int	ss(t_stack *a, t_stack *b)
+void	ss(t_context *ctx)
 {
-	swap(a);
-	swap(b);
+	swap(ctx->a);
+	swap(ctx->b);
+	ctx->ss++;
 	ft_putendl_fd("ss", 1);
-	return (1);
 }

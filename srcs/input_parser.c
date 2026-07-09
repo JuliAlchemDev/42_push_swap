@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 16:38:54 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 14:52:56 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ static t_stack	*get_stack(int size, char **nums)
 t_parsed_input	input_parser(int argc, char *argv[])
 {
 	int				i;
-	t_parsed_input	parsed_input = {0};
+	t_parsed_input	parsed_input;
 
 	i = 1;
+	parsed_input.bench_flag = 0;
+	parsed_input.strategy = NULL;
 	while ((is_strategy(argv[i]))
 		|| is_bench(argv[i]))
 	{
