@@ -6,20 +6,33 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:02:52 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 18:08:32 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 15:27:25 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	select_sort(t_stack *a, t_stack *b, char strategy[], int bench_flag)
+void	select_sort(t_context *ctx)
 {
-	t_bench_data	bench_data;
+	ctx->disorder = compute_disorder(ctx->a);
+	ctx->total_ops = 0;
+	ctx->sa = 0;
+	ctx->sb = 0;
+	ctx->ss = 0;
+	ctx->pa = 0;
+	ctx->pb = 0;
+	ctx->ra = 0;
+	ctx->rb = 0;
+	ctx->rr = 0;
+	ctx->rra = 0;
+	ctx->rrb = 0;
+	ctx->rrr = 0;
 
-	bench_data.disorder = compute_disorder(a);
-	bench_data.strategy = strategy;
-	if ((ft_strcmp(strategy, "--simple") == 0)
-		|| ((ft_strcmp(strategy, "--adaptive") == 0)
-			&& bench_data.disorder <= 0.2))
-		insertion_sort(a, b, bench_flag, &bench_data);
+	if ((ft_strcmp(ctx->strategy, "--simple") == 0)
+		|| (((ft_strcmp(ctx->strategy, "--adaptive") == 0)
+			|| ctx->strategy == NULL)
+			&& ctx->disorder <= 0.2))
+		insertion_sort(ctx);
+	if (ctx->bench_flag)
+		ft_putbench(ctx);
 }

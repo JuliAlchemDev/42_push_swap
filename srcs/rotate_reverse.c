@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:46:29 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 16:41:24 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 15:06:16 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,24 @@ static void	rvs_rotate(t_stack *stack)
 	stack->data[0] = temp;
 }
 
-void	rra(t_stack *a)
+void	rra(t_context *ctx)
 {
-	rvs_rotate(a);
+	rvs_rotate(ctx->a);
+	ctx->rra++;
 	ft_putendl_fd("rra", 1);
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_context *ctx)
 {
-	rvs_rotate(b);
+	rvs_rotate(ctx->b);
+	ctx->rrb++;
 	ft_putendl_fd("rrb", 1);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_context *ctx)
 {
-	rvs_rotate(a);
-	rvs_rotate(b);
+	rvs_rotate(ctx->a);
+	rvs_rotate(ctx->b);
+	ctx->rrr++;
 	ft_putendl_fd("rrr", 1);
 }
