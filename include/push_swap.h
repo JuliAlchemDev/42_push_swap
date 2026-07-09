@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 18:04:07 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 18:22:24 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,25 @@ float			compute_disorder(t_stack *stack);
 void			ft_putbench(t_context *ctx);
 void			select_sort(t_context *ctx);
 
-
 // Algorithms
 
 void			insertion_sort(t_context *ctx);
-	
-// Operation functions
-	
-void				sa(t_context *ctx);
-void				sb(t_context *ctx);
-void				ss(t_context *ctx);
 
-void				pa(t_context *ctx);
-void				pb(t_context *ctx);
-	
-void				ra(t_context *ctx);
-void				rb(t_context *ctx);
-void				rr(t_context *ctx);
-	
-void				rra(t_context *ctx);
-void				rrb(t_context *ctx);
-void				rrr(t_context *ctx);
+// Operation functions
+
+void			sa(t_context *ctx);
+void			sb(t_context *ctx);
+void			ss(t_context *ctx);
+
+void			pa(t_context *ctx);
+void			pb(t_context *ctx);
+
+void			ra(t_context *ctx);
+void			rb(t_context *ctx);
+void			rr(t_context *ctx);
+
+void			rra(t_context *ctx);
+void			rrb(t_context *ctx);
+void			rrr(t_context *ctx);
 
 #endif

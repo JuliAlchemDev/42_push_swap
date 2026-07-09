@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 16:03:07 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 18:03:47 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 18:21:17 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_stack
 	size_t	size;
 }	t_stack;
 
-typedef	struct s_context
+typedef struct s_context
 {
 	int				bench_flag;
 	float			disorder;
@@ -39,6 +39,5 @@ typedef	struct s_context
 	t_stack			*a;
 	t_stack			*b;	
 }	t_context;
-
 
 #endif
