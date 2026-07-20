@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 17:38:13 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 18:30:10 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/09 18:23:08 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putdisorder(float d)
 {
-	int int_part;
-	int dec_part;
+	int	int_part;
+	int	dec_part;
 
 	int_part = (int)(d * 100);
 	dec_part = ((int)(d * 10000)) % 100;
