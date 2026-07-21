@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bucket_sort.c                                      :+:      :+:    :+:   */
+/*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:42:51 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 17:58:19 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 18:14:03 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static	void	merge_chunks(t_context *ctx)
 	rewind_a(ctx, &c);
 }
 
-void	bucket_sort(t_context *ctx)
+void	chunk_sort(t_context *ctx)
 {
 	size_t	sqrt_n;
 

@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 17:46:01 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 18:14:14 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			select_sort(t_context *ctx);
 
 // Algorithms
 
-void			bucket_sort(t_context *ctx);
+void			chunk_sort(t_context *ctx);
 void			insertion_sort(t_context *ctx);
 
 // Operation functions

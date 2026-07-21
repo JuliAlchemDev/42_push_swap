@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:02:52 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 16:04:57 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 18:14:24 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	select_sort(t_context *ctx)
 			|| (((ft_strcmp(ctx->strategy, "--adaptive") == 0)
 					|| ctx->strategy == NULL)
 				&& ctx->disorder <= 0.5))
-			bucket_sort(ctx);
+			chunk_sort(ctx);
 	}
 	if (ctx->bench_flag)
 		ft_putbench(ctx);
