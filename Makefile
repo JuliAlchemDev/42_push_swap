@@ -19,6 +19,7 @@ SRCS = \
        srcs/load_stack.c \
        srcs/main.c \
        srcs/push.c \
+	   srcs/rewind.c \
        srcs/rotate_reverse.c \
        srcs/rotate.c \
 	   srcs/select_sort.c \

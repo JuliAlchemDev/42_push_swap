@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 18:04:59 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 16:07:14 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,23 @@ static t_stack	*get_stack(int size, char **nums)
 	return (stack);
 }
 
+static void	init_context(t_context *ctx)
+{
+	ctx->disorder = compute_disorder(ctx->a);
+	ctx->total_ops = 0;
+	ctx->sa = 0;
+	ctx->sb = 0;
+	ctx->ss = 0;
+	ctx->pa = 0;
+	ctx->pb = 0;
+	ctx->ra = 0;
+	ctx->rb = 0;
+	ctx->rr = 0;
+	ctx->rra = 0;
+	ctx->rrb = 0;
+	ctx->rrr = 0;
+}
+
 void	input_parser(int argc, char *argv[], t_context *ctx)
 {
 	int				i;
@@ -63,4 +80,5 @@ void	input_parser(int argc, char *argv[], t_context *ctx)
 	}
 	ctx->a = get_stack(argc - i, argv + i);
 	ctx->b = load_stack(ctx->a->size, NULL);
+	init_context(ctx);
 }

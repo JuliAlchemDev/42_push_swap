@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/20 12:54:14 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 17:46:01 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ void			rr(t_context *ctx);
 void			rra(t_context *ctx);
 void			rrb(t_context *ctx);
 void			rrr(t_context *ctx);
+
+void			rewind_a(t_context *ctx, size_t *c);
+void			rewind_b(t_context *ctx, size_t *c);
 
 #endif

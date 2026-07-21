@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:42:51 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 16:01:54 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 17:58:19 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,42 +26,63 @@ static	size_t	ft_floor_sqrt(size_t n)
 	return (0);
 }
 
-void	sort_chunk(t_context *ctx, size_t chunk_size)
+static	void	sort_chunk(t_context *ctx, size_t chunk_size)
 {
-	int	i;
-	int	c;
+	size_t	c;
+	size_t	i;
 
-	i = 0;
-	c = 0;
-	if (ctx->a->data[0] < ctx->a->data[1])
-		sa(ctx);
 	pb(ctx);
-	pb(ctx);
-	while ((i < chunk_size) && (ctx->a->size > 0))
+	i = 1;
+	while ((i < chunk_size) && (ctx->a->size > 1))
 	{
-		if (ctx->a->data[0] < ctx->b->data[0])
+		c = 0;
+		while ((ctx->a->data[0] > ctx->b->data[0]) && (c < i))
 		{
-			pb(ctx);
-			i++;
-		}
-		else
-		{
-			rrb(ctx);
+			rb(ctx);
 			c++;
 		}
+		pb(ctx);
+		i++;
+		while ((ctx->a->data[0] < ctx->b->data[0]) && (c > 0))
+		{
+			rrb(ctx);
+			c--;
+		}
 	}
+	rewind_b(ctx, &c);
+}
+
+static	void	merge_chunks(t_context *ctx)
+{
+	size_t	c;
+
+	c = 0;
+	while (ctx->b->size > 0)
+	{
+		while ((ctx->b->data[0] > ctx->a->data[0]) && (c < ctx->a->size))
+		{
+			ra(ctx);
+			c++;
+		}
+		if (ctx->b->data[0] < ctx->a->data[0])
+			c %= ctx->a->size;
+		pa(ctx);
+		while ((ctx->b->data[0] < ctx->a->data[0]) && (c < ctx->a->size))
+		{
+			ra(ctx);
+			c++;
+		}
+		c %= ctx->a->size;
+	}
+	rewind_a(ctx, &c);
 }
 
 void	bucket_sort(t_context *ctx)
 {
 	size_t	sqrt_n;
-	size_t	i;
-	size_t	j;
-	size_t	c;
 
 	sqrt_n = ft_floor_sqrt(ctx->a->size);
-	while (ctx->a->size > 0)
-	{
-		i = 0;
-	}
+	while (ctx->a->size > 1)
+		sort_chunk(ctx, sqrt_n);
+	merge_chunks(ctx);
 }
