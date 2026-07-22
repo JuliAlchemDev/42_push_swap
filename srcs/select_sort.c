@@ -19,33 +19,17 @@ static void adaptive_strategy(t_context *ctx)
 	if (disorder < 0.2)
 		insertion_sort(ctx);
 	else if (disorder >= 0.2 && disorder < 0.5)
-		return ;
+		chunk_sort(ctx);
 	else
 		return ;
 }
 
 void	select_sort(t_context *ctx)
 {
-	ctx->disorder = compute_disorder(ctx->a);
-	ctx->total_ops = 0;
-	ctx->sa = 0;
-	ctx->sb = 0;
-	ctx->ss = 0;
-	ctx->pa = 0;
-	ctx->pb = 0;
-	ctx->ra = 0;
-	ctx->rb = 0;
-	ctx->rr = 0;
-	ctx->rra = 0;
-	ctx->rrb = 0;
-	ctx->rrr = 0;
-
-	
 	if(ft_strcmp(ctx->strategy, "--simple") == 0)
 		insertion_sort(ctx);
 	else if (ft_strcmp(ctx->strategy, "--medium") == 0)
-		// call intermediate sort
-		return ;
+		chunk_sort(ctx);
 	else if (ft_strcmp(ctx->strategy, "--complex") == 0)
 		// call complex sort
 		return ;
