@@ -49,6 +49,8 @@ static void	init_context(t_context *ctx)
 {
 	ctx->disorder = compute_disorder(ctx->a);
 	ctx->total_ops = 0;
+	if(!ctx->strategy)
+		ctx->strategy = "--adaptive";
 	ctx->sa = 0;
 	ctx->sb = 0;
 	ctx->ss = 0;
