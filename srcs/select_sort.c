@@ -12,10 +12,11 @@
 
 #include "../include/push_swap.h"
 
-static void adaptive_strategy(t_context *ctx)
+static void	adaptive_strategy(t_context *ctx)
 {
-	float disorder = ctx->disorder;
+	float	disorder;
 
+	disorder = ctx->disorder;
 	if (disorder < 0.2)
 		insertion_sort(ctx);
 	else if (disorder >= 0.2 && disorder < 0.5)
@@ -26,16 +27,15 @@ static void adaptive_strategy(t_context *ctx)
 
 void	select_sort(t_context *ctx)
 {
-	if(ft_strcmp(ctx->strategy, "--simple") == 0)
+	if (ft_strcmp(ctx->strategy, "--simple") == 0)
 		insertion_sort(ctx);
 	else if (ft_strcmp(ctx->strategy, "--medium") == 0)
 		chunk_sort(ctx);
 	else if (ft_strcmp(ctx->strategy, "--complex") == 0)
 		// call complex sort
 		return ;
-	else 
-		 adaptive_strategy(ctx);
-	
+	else
+		adaptive_strategy(ctx);
 	if (ctx->bench_flag)
 		ft_putbench(ctx);
 }

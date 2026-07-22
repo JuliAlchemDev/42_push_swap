@@ -30,16 +30,14 @@ static	void	count_total(t_context *ctx)
 void	ft_putbench(t_context *ctx)
 {
 	ft_putdisorder(ctx->disorder);
-
 	if (ft_strcmp(ctx->strategy, "--simple") == 0)
-		ft_printf("[bench] strategy: Simple / O(n\u00b2)\n");
+		ft_printf("[bench] strategy: Simple / O(n√n)\n");
 	else if (ft_strcmp(ctx->strategy, "--medium") == 0)
 		ft_printf("[bench] strategy: Intermediate / O(n√n)\n");
 	else if (ft_strcmp(ctx->strategy, "--complex") == 0)
 		ft_printf("[bench] strategy: Complex / O(n log n)\n");
-	else	
+	else
 		ft_printf("[bench] strategy: Adaptive / O(n√n)\n", ctx->strategy);
-
 	count_total(ctx);
 	ft_printf("[bench] total_ops: %d\n", ctx->total_ops);
 	ft_printf("[bench] sa: %d sb: %d ss: %d", ctx->sa, ctx->sb, ctx->ss);
