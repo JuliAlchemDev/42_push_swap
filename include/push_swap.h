@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 18:22:24 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/21 18:14:14 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "structs.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 void			clear_stack(t_stack *s);
 void			display_stacks(t_context *ctx);
@@ -34,6 +35,7 @@ void			select_sort(t_context *ctx);
 
 // Algorithms
 
+void			chunk_sort(t_context *ctx);
 void			insertion_sort(t_context *ctx);
 
 // Operation functions
@@ -52,5 +54,8 @@ void			rr(t_context *ctx);
 void			rra(t_context *ctx);
 void			rrb(t_context *ctx);
 void			rrr(t_context *ctx);
+
+void			rewind_a(t_context *ctx, size_t *c);
+void			rewind_b(t_context *ctx, size_t *c);
 
 #endif

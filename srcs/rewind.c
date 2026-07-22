@@ -1,27 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_stacks.c                                   :+:      :+:    :+:   */
+/*   rewind.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 12:27:16 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 15:30:50 by aserio           ###   ########.fr       */
+/*   Created: 2026/07/21 17:44:49 by aserio            #+#    #+#             */
+/*   Updated: 2026/07/21 17:58:42 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	display_stacks(t_context *ctx)
+void	rewind_a(t_context *ctx, size_t *c)
 {
-	ft_putendl_fd("--------------------------------------------", 1);
-	ft_putstr_fd("a.size = ", 1);
-	ft_putnbr_fd(ctx->a->size, 1);
-	ft_putchar_fd('\n', 1);
-	putstack(ctx->a);
-	ft_putstr_fd("b.size = ", 1);
-	ft_putnbr_fd(ctx->b->size, 1);
-	ft_putchar_fd('\n', 1);
-	putstack(ctx->b);
-	ft_putendl_fd("--------------------------------------------", 1);
+	if (ctx->a->size / 2 > *c)
+	{
+		while (*c > 0)
+		{
+			rra(ctx);
+			(*c)--;
+		}
+	}
+	else
+	{
+		while (*c < ctx->a->size)
+		{
+			ra(ctx);
+			(*c)++;
+		}
+	}
+}
+
+void	rewind_b(t_context *ctx, size_t *c)
+{
+	if (ctx->b->size / 2 > *c)
+	{
+		while (*c > 0)
+		{
+			rrb(ctx);
+			(*c)--;
+		}
+	}
+	else
+	{
+		while (*c < ctx->b->size)
+		{
+			rb(ctx);
+			(*c)++;
+		}
+	}
 }

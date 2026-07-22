@@ -6,6 +6,7 @@ LIB_DIR = ./Libft
 PRINTF_DIR = ./libftprintf
 DEP_DIR = ./include
 SRCS = \
+	   srcs/chunk_sort.c \
        srcs/clear_stack.c \
 	   srcs/compute_disorder.c \
 	   srcs/error.c \
@@ -18,6 +19,7 @@ SRCS = \
        srcs/load_stack.c \
        srcs/main.c \
        srcs/push.c \
+	   srcs/rewind.c \
        srcs/rotate_reverse.c \
        srcs/rotate.c \
 	   srcs/select_sort.c \
