@@ -38,7 +38,7 @@ void	ft_putbench(t_context *ctx)
 	else if (ft_strcmp(ctx->strategy, "--complex") == 0)
 		ft_printf("[bench] strategy: Complex / O(n log n)\n");
 	else	
-		ft_printf("[bench] strategy: %d |||Adaptive / O(n√n)\n", ctx->strategy);
+		ft_printf("[bench] strategy: Adaptive / O(n√n)\n", ctx->strategy);
 
 	count_total(ctx);
 	ft_printf("[bench] total_ops: %d\n", ctx->total_ops);
