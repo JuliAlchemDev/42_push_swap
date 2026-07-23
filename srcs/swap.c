@@ -27,14 +27,14 @@ static void	swap(t_stack *stack)
 void	sa(t_context *ctx)
 {
 	swap(ctx->a);
-	ctx->sa++;
+	ctx->ops[OP_SA]++;
 	ft_putendl_fd("sa", 1);
 }
 
 void	sb(t_context *ctx)
 {
 	swap(ctx->b);
-	ctx->sb++;
+	ctx->ops[OP_SB]++;
 	ft_putendl_fd("sb", 1);
 }
 
@@ -42,6 +42,6 @@ void	ss(t_context *ctx)
 {
 	swap(ctx->a);
 	swap(ctx->b);
-	ctx->ss++;
+	ctx->ops[OP_SS]++;
 	ft_putendl_fd("ss", 1);
 }

@@ -40,13 +40,13 @@ static void	push(t_stack *stack_in, t_stack *stack_out)
 void	pa(t_context *ctx)
 {
 	push(ctx->a, ctx->b);
-	ctx->pa++;
+	ctx->ops[OP_PA]++;
 	ft_putendl_fd("pa", 1);
 }
 
 void	pb(t_context *ctx)
 {
 	push(ctx->b, ctx->a);
-	ctx->pb++;
+	ctx->ops[OP_PB]++;
 	ft_putendl_fd("pb", 1);
 }
