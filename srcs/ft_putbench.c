@@ -12,7 +12,8 @@
 
 #include "../include/push_swap.h"
 
-static void	ft_putstrategy(t_context *ctx){
+static void	ft_putstrategy(t_context *ctx)
+{
 	if (ft_strcmp(ctx->strategy, "--simple") == 0)
 		ft_putendl_fd("[bench] strategy: Simple / O(n)", 2);
 	else if (ft_strcmp(ctx->strategy, "--medium") == 0)
@@ -23,11 +24,11 @@ static void	ft_putstrategy(t_context *ctx){
 	{
 		ft_putstr_fd("[bench] strategy: Adaptive /", 2);
 		if (ctx->disorder < 0.2)
-			ft_putendl_fd(" O(n)",2);
+			ft_putendl_fd(" O(n)", 2);
 		else if (ctx->disorder >= 0.2 && ctx->disorder < 0.5)
-			ft_putendl_fd(" O(n√n)",2); // \xE2\x88\x9A
+			ft_putendl_fd(" O(n√n)", 2);
 		else if (ctx->disorder >= 0.5)
-			ft_putendl_fd(" O(n log n)",2);
+			ft_putendl_fd(" O(n log n)", 2);
 	}
 }
 
@@ -38,7 +39,7 @@ static void	ft_puttotal(t_context *ctx)
 
 	i = 0;
 	ctx->total_ops = 0;
-	while(i < OP_COUNT)
+	while (i < OP_COUNT)
 	{
 		ctx->total_ops += ctx->ops[i];
 		i++;
