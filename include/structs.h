@@ -19,7 +19,7 @@ typedef struct s_stack
 	size_t	size;
 }	t_stack;
 
-typedef enum	e_op
+typedef enum e_op
 {
 	OP_SA,
 	OP_SB,
@@ -33,7 +33,7 @@ typedef enum	e_op
 	OP_RRB,
 	OP_RRR,
 	OP_COUNT
-} t_op;
+}	t_op;
 
 typedef struct s_context
 {
