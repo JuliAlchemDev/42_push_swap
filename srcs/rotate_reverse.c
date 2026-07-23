@@ -32,14 +32,14 @@ static void	rvs_rotate(t_stack *stack)
 void	rra(t_context *ctx)
 {
 	rvs_rotate(ctx->a);
-	ctx->rra++;
+	ctx->ops[OP_RRA]++;
 	ft_putendl_fd("rra", 1);
 }
 
 void	rrb(t_context *ctx)
 {
 	rvs_rotate(ctx->b);
-	ctx->rrb++;
+	ctx->ops[OP_RRB]++;
 	ft_putendl_fd("rrb", 1);
 }
 
@@ -47,6 +47,6 @@ void	rrr(t_context *ctx)
 {
 	rvs_rotate(ctx->a);
 	rvs_rotate(ctx->b);
-	ctx->rrr++;
+	ctx->ops[OP_RRR]++;
 	ft_putendl_fd("rrr", 1);
 }

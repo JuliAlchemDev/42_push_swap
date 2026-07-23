@@ -51,17 +51,7 @@ static void	init_context(t_context *ctx)
 	ctx->total_ops = 0;
 	if (!ctx->strategy)
 		ctx->strategy = "--adaptive";
-	ctx->sa = 0;
-	ctx->sb = 0;
-	ctx->ss = 0;
-	ctx->pa = 0;
-	ctx->pb = 0;
-	ctx->ra = 0;
-	ctx->rb = 0;
-	ctx->rr = 0;
-	ctx->rra = 0;
-	ctx->rrb = 0;
-	ctx->rrr = 0;
+	ft_bzero(ctx->ops, sizeof(ctx->ops));
 }
 
 void	input_parser(int argc, char *argv[], t_context *ctx)
