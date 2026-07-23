@@ -19,6 +19,9 @@ SRCS = \
        srcs/load_stack.c \
        srcs/main.c \
        srcs/push.c \
+	   srcs/quick_sort.c \
+	   srcs/quick_sort_a.c \
+	   srcs/quick_sort_b.c \
 	   srcs/rewind.c \
        srcs/rotate_reverse.c \
        srcs/rotate.c \

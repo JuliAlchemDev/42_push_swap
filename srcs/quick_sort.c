@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 15:27:22 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/22 21:47:33 by aserio           ###   ########.fr       */
+/*   Created: 2026/07/22 03:38:27 by aserio            #+#    #+#             */
+/*   Updated: 2026/07/22 21:57:11 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char *argv[])
+float	avg_pivot(t_stack *stack, size_t size)
 {
-	t_context		ctx;
+	size_t	i;
+	float	pivot;
 
-	input_parser(argc, argv, &ctx);
-	select_sort(&ctx);
-	clear_stack(ctx.b);
-	clear_stack(ctx.a);
-	return (0);
+	pivot = 0;
+	i = 0;
+	while (i < size)
+	{
+		pivot += (float) stack->data[i];
+		i++;
+	}
+	return (pivot / (float) size);
+}
+
+void	quick_sort(t_context *ctx)
+{
+	quick_sort_a(ctx, (size_t) ctx->a->size);
 }

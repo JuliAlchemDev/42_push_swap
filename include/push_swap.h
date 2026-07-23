@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 18:14:14 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/22 21:58:34 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,15 @@ void			select_sort(t_context *ctx);
 
 // Algorithms
 
-void			chunk_sort(t_context *ctx);
+// Simple
 void			insertion_sort(t_context *ctx);
+// Medium
+void			chunk_sort(t_context *ctx);
+// Complex
+void			quick_sort(t_context *ctx);
+void			quick_sort_a(t_context *ctx, size_t size);
+void			quick_sort_b(t_context *ctx, size_t size);
+float			avg_pivot(t_stack *stack, size_t size);
 
 // Operation functions
 
