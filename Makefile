@@ -5,6 +5,7 @@ OBJ_DIR = ./obj
 LIB_DIR = ./Libft
 PRINTF_DIR = ./libftprintf
 DEP_DIR = ./include
+TESTS_DIR = ./tests
 SRCS = \
 	   srcs/chunk_sort.c \
        srcs/clear_stack.c \
@@ -29,6 +30,10 @@ SRCS = \
        srcs/swap.c \
        utils/putstack.c \
 	   utils/display_stacks.c
+
+TESTS = \
+	   $(TESTS_DIR)/test_short_stack.sh \
+	   $(TESTS_DIR)/test_checker_linux.sh
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 LIBFT = $(LIB_DIR)/libft.a
@@ -58,7 +63,7 @@ $(LIBPRINTF):
 $(NAME): $(OBJS) $(LIBFT) $(LIBPRINTF)
 	$(CC) $(FLAGS) $^ -o $@
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re tests
 
 clean:
 	$(RM) $(OBJS)
@@ -67,3 +72,12 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+$(TESTS_DIR)/%.sh:
+	chmod +x $@
+
+tests: $(NAME) $(TESTS)
+	@for test_script in $(TESTS); do \
+		echo "== $$test_script =="; \
+		sh "$$test_script" || exit 1; \
+	done
