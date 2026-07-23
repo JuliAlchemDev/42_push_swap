@@ -19,25 +19,31 @@ typedef struct s_stack
 	size_t	size;
 }	t_stack;
 
+typedef enum	e_op
+{
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR,
+	OP_COUNT
+} t_op;
+
 typedef struct s_context
 {
 	int				bench_flag;
 	float			disorder;
 	char			*strategy;
 	int				total_ops;
-	int				sa;
-	int				sb;
-	int				ss;
-	int				pa;
-	int				pb;
-	int				ra;
-	int				rb;
-	int				rr;
-	int				rra;
-	int				rrb;
-	int				rrr;
+	int				ops[OP_COUNT];
 	t_stack			*a;
-	t_stack			*b;	
+	t_stack			*b;
 }	t_context;
 
 #endif
