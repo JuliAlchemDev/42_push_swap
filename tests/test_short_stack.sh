@@ -1,0 +1,10 @@
+#!/bin/sh
+ARG="4 67 3 87 23"
+echo "simple"
+./push_swap --simple "$ARG" | ./checker_linux "$ARG"
+echo "medium"
+./push_swap --medium "$ARG" | ./checker_linux "$ARG"
+echo "complex"
+./push_swap --complex "$ARG" | ./checker_linux "$ARG"
+echo "adaptive"
+./push_swap "$ARG" | ./checker_linux "$ARG"
