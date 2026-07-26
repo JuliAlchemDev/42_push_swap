@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:42:51 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 18:14:03 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/26 11:09:57 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ static	void	sort_chunk(t_context *ctx, size_t chunk_size)
 	size_t	c;
 	size_t	i;
 
-	pb(ctx);
+	op(PB, ctx);
 	i = 1;
 	while ((i < chunk_size) && (ctx->a->size > 1))
 	{
 		c = 0;
 		while ((ctx->a->data[0] > ctx->b->data[0]) && (c < i))
 		{
-			rb(ctx);
+			op(RB, ctx);
 			c++;
 		}
-		pb(ctx);
+		op(PB, ctx);
 		i++;
 		while ((ctx->a->data[0] < ctx->b->data[0]) && (c > 0))
 		{
-			rrb(ctx);
+			op(RRB, ctx);
 			c--;
 		}
 	}
@@ -61,15 +61,15 @@ static	void	merge_chunks(t_context *ctx)
 	{
 		while ((ctx->b->data[0] > ctx->a->data[0]) && (c < ctx->a->size))
 		{
-			ra(ctx);
+			op(RA, ctx);
 			c++;
 		}
 		if (ctx->b->data[0] < ctx->a->data[0])
 			c %= ctx->a->size;
-		pa(ctx);
+		op(PA, ctx);
 		while ((ctx->b->data[0] < ctx->a->data[0]) && (c < ctx->a->size))
 		{
-			ra(ctx);
+			op(RA, ctx);
 			c++;
 		}
 		c %= ctx->a->size;

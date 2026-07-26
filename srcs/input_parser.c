@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/21 16:07:14 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/26 12:38:46 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ static t_stack	*get_stack(int size, char **nums)
 
 static void	init_context(t_context *ctx)
 {
-	ctx->disorder = compute_disorder(ctx->a);
-	ctx->total_ops = 0;
-	if (!ctx->strategy)
-		ctx->strategy = "--adaptive";
-	ft_bzero(ctx->ops, sizeof(ctx->ops));
-}
-
-void	input_parser(int argc, char *argv[], t_context *ctx)
-{
-	int				i;
-
-	i = 1;
 	ctx->bench_flag = 0;
 	ctx->strategy = NULL;
+	ctx->total_ops = 0;
+	init_operations_list(ctx);
+}
+
+t_context	*input_parser(int argc, char *argv[])
+{
+	int			i;
+	t_context	*ctx;
+
+	ctx = malloc(sizeof(t_context));
+	init_context(ctx);
+	i = 1;
 	while ((is_strategy(argv[i]))
 		|| is_bench(argv[i]))
 	{
@@ -70,7 +70,14 @@ void	input_parser(int argc, char *argv[], t_context *ctx)
 			ctx->bench_flag = 1;
 		i++;
 	}
+	if (!ctx->strategy)
+		ctx->strategy = "--adaptive";
 	ctx->a = get_stack(argc - i, argv + i);
+	if (!ctx->a)
+		error(ctx);
+	ctx->disorder = compute_disorder(ctx->a);
 	ctx->b = load_stack(ctx->a->size, NULL);
-	init_context(ctx);
+	if (!ctx->b)
+		error(ctx);
+	return (ctx);
 }

@@ -6,14 +6,15 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 10:08:12 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 16:49:41 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/25 16:24:03 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	error(void)
+void	error(t_context *ctx)
 {
+	clear_context(ctx);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 18:16:15 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 16:40:39 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/26 07:15:47 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ t_stack	*create_stack(size_t size)
 	if (!(stack->data))
 	{
 		free(stack);
-		error();
+		return (NULL);
 	}
 	stack->size = 0;
 	return (stack);
 }
 
-int	is_duplicated(char num[], int *data, size_t size)
+static	int	is_duplicated(char num[], int *data, size_t size)
 {
 	size_t	i;
 	int		n;
@@ -58,10 +58,7 @@ t_stack	*load_stack(size_t size, char *nums[])
 		{
 			if (!is_valid_int(nums[i])
 				|| is_duplicated(nums[i], stack->data, i))
-			{
-				clear_stack(stack);
-				error();
-			}
+				return (NULL);
 			stack->data[i] = ft_atoi(nums[i]);
 			i++;
 		}

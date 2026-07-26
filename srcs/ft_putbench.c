@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 18:03:20 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/20 17:42:37 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/26 11:11:48 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,8 @@ static void	ft_putstrategy(t_context *ctx)
 
 static void	ft_puttotal(t_context *ctx)
 {
-	int		i;
 	char	*str_total_ops;
 
-	i = 0;
-	ctx->total_ops = 0;
-	while (i < OP_COUNT)
-	{
-		ctx->total_ops += ctx->ops[i];
-		i++;
-	}
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	str_total_ops = ft_itoa(ctx->total_ops);
 	ft_putendl_fd(str_total_ops, 2);
@@ -63,19 +55,19 @@ static void	put_op(char *name, int count)
 static void	ft_putops(t_context *ctx)
 {
 	ft_putstr_fd("[bench]", 2);
-	put_op(" sa: ", ctx->ops[OP_SA]);
-	put_op(" sb: ", ctx->ops[OP_SB]);
-	put_op(" ss: ", ctx->ops[OP_SS]);
-	put_op(" pa: ", ctx->ops[OP_PA]);
-	put_op(" pb: ", ctx->ops[OP_PB]);
+	put_op(" sa: ", ctx->ops[SA].count);
+	put_op(" sb: ", ctx->ops[SB].count);
+	put_op(" ss: ", ctx->ops[SS].count);
+	put_op(" pa: ", ctx->ops[PA].count);
+	put_op(" pb: ", ctx->ops[PB].count);
 	ft_putendl_fd("", 2);
 	ft_putstr_fd("[bench]", 2);
-	put_op(" ra: ", ctx->ops[OP_RA]);
-	put_op(" rb: ", ctx->ops[OP_RB]);
-	put_op(" rr: ", ctx->ops[OP_RR]);
-	put_op(" rra: ", ctx->ops[OP_RRA]);
-	put_op(" rrb: ", ctx->ops[OP_RRB]);
-	put_op(" rrr: ", ctx->ops[OP_RRR]);
+	put_op(" ra: ", ctx->ops[RA].count);
+	put_op(" rb: ", ctx->ops[RB].count);
+	put_op(" rr: ", ctx->ops[RR].count);
+	put_op(" rra: ", ctx->ops[RRA].count);
+	put_op(" rrb: ", ctx->ops[RRB].count);
+	put_op(" rrr: ", ctx->ops[RRR].count);
 	ft_putendl_fd("", 2);
 }
 
