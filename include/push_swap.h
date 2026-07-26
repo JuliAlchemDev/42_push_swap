@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/22 21:58:34 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/26 10:45:02 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@
 # include <stdio.h>
 # include <limits.h>
 
-void			clear_stack(t_stack *s);
+void			clear_context(t_context *ctx);
 void			display_stacks(t_context *ctx);
 t_stack			*load_stack(size_t size, char *nums[]);
 void			putstack(t_stack *s);
+void			init_operations_list(t_context *ctx);
 int				is_valid_int(char *s);
 int				ft_strcmp(const char *s1, const char *s2);
-void			input_parser(int argc, char *argv[], t_context *ctx);
-void			error(void);
+t_context		*input_parser(int argc, char *argv[]);
+void			error(t_context *ctx);
 void			ft_putdisorder(float d);
 float			compute_disorder(t_stack *stack);
 void			ft_putbench(t_context *ctx);
@@ -44,6 +45,10 @@ void			quick_sort(t_context *ctx);
 void			quick_sort_a(t_context *ctx, size_t size);
 void			quick_sort_b(t_context *ctx, size_t size);
 float			avg_pivot(t_stack *stack, size_t size);
+
+// Operations wrapper
+
+void			op(t_op op, t_context *ctx);
 
 // Operation functions
 

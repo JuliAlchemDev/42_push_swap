@@ -19,6 +19,7 @@ SRCS = \
 	   srcs/is_valid_int.c \
        srcs/load_stack.c \
        srcs/main.c \
+	   srcs/operation.c \
        srcs/push.c \
 	   srcs/quick_sort.c \
 	   srcs/quick_sort_a.c \

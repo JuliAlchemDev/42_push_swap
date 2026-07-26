@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:16:27 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/09 15:04:07 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/24 23:41:33 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,9 @@ static void	push(t_stack *stack_in, t_stack *stack_out)
 void	pa(t_context *ctx)
 {
 	push(ctx->a, ctx->b);
-	ctx->ops[OP_PA]++;
-	ft_putendl_fd("pa", 1);
 }
 
 void	pb(t_context *ctx)
 {
 	push(ctx->b, ctx->a);
-	ctx->ops[OP_PB]++;
-	ft_putendl_fd("pb", 1);
 }

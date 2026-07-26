@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:57:18 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/22 22:32:49 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/25 11:49:22 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static	void	handle_simple_cases(t_context *ctx, size_t size)
 	if (size == 2)
 	{
 		if (ctx->b->data[0] < ctx->b->data[1])
-			sb(ctx);
-		pa(ctx);
+			op(SB, ctx);
+		op(PA, ctx);
 	}
-	pa(ctx);
+	op(PA, ctx);
 }
 
 static	size_t	count_pas(t_context *ctx, size_t size, int pivot)
@@ -43,7 +43,7 @@ static	void	rewind_stack(t_context *ctx, size_t j, size_t pivot_index)
 {
 	while (j > pivot_index)
 	{
-		rrb(ctx);
+		op(RRB, ctx);
 		j--;
 	}
 }
@@ -65,11 +65,11 @@ void	quick_sort_b(t_context *ctx, size_t size)
 	{
 		if (ctx->b->data[0] >= pivot)
 		{
-			pa(ctx);
+			op(PA, ctx);
 			pivot_index++;
 		}
 		else
-			rb(ctx);
+			op(RB, ctx);
 		j++;
 	}
 	rewind_stack(ctx, j, pivot_index);
