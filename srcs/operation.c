@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 18:00:44 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 15:10:15 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 17:40:31 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void	init_operations_list(t_context *ctx)
 
 void	op(t_op op, t_context *ctx)
 {
+	if ((((op == OP_RA) || (op == OP_RRA)) && (ctx->a->size <= 1)) 
+		|| (((op == OP_RB) || (op == OP_RRB)) && (ctx->b->size <= 1)))
+		return ;
 	ctx->ops[op].apply(ctx);
 	ft_putendl_fd(ctx->ops[op].name, 1);
 	ctx->ops[op].count++;

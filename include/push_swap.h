@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 17:13:10 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 20:45:41 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void			select_sort(t_context *ctx);
 void			insertion_sort(t_context *ctx);
 // Medium
 void			chunk_sort(t_context *ctx);
+void			sort_a_simple(t_context *ctx);
 // Complex
 void			quick_sort(t_context *ctx);
 void			quick_sort_a(t_context *ctx, size_t size);
@@ -67,7 +68,7 @@ void			rra(t_context *ctx);
 void			rrb(t_context *ctx);
 void			rrr(t_context *ctx);
 
-void			rewind_a(t_context *ctx, size_t *c);
-void			rewind_b(t_context *ctx, size_t *c);
+void			rewind_a(t_context *ctx, size_t *c, size_t size);
+void			rewind_b(t_context *ctx, size_t *c, size_t size);
 
 #endif

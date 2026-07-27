@@ -27,6 +27,7 @@ SRCS = \
        srcs/rotate_reverse.c \
        srcs/rotate.c \
 	   srcs/select_sort.c \
+	   srcs/simple_sort.c \
        srcs/swap.c \
        utils/putstack.c \
 	   utils/display_stacks.c
