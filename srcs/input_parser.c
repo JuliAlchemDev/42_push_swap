@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 16:27:45 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 16:31:40 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_context	*input_parser(int argc, char *argv[])
 	init_context(ctx);
 	i = 1;
 	while ((i < argc) && (is_strategy(argv[i])
-		|| is_bench(argv[i])))
+			|| is_bench(argv[i])))
 	{
 		if (is_strategy(argv[i]))
 			ctx->strategy = argv[i];
