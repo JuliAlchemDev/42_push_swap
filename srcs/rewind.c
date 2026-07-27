@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 17:44:49 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/25 11:49:40 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 13:11:16 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rewind_a(t_context *ctx, size_t *c)
 	{
 		while (*c > 0)
 		{
-			op(RRA, ctx);
+			op(OP_RRA, ctx);
 			(*c)--;
 		}
 	}
@@ -26,7 +26,7 @@ void	rewind_a(t_context *ctx, size_t *c)
 	{
 		while (*c < ctx->a->size)
 		{
-			op(RA, ctx);
+			op(OP_RA, ctx);
 			(*c)++;
 		}
 	}
@@ -38,7 +38,7 @@ void	rewind_b(t_context *ctx, size_t *c)
 	{
 		while (*c > 0)
 		{
-			op(RRB, ctx);
+			op(OP_RRB, ctx);
 			(*c)--;
 		}
 	}
@@ -46,7 +46,7 @@ void	rewind_b(t_context *ctx, size_t *c)
 	{
 		while (*c < ctx->b->size)
 		{
-			op(RB, ctx);
+			op(OP_RB, ctx);
 			(*c)++;
 		}
 	}

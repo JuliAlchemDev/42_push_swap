@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 18:36:19 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/26 08:24:02 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 14:42:38 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	clear_stack(t_stack *stack)
 	}
 }
 
-static void	clear_ops(t_action *ops)
+static void	clear_ops(t_op_prop *ops)
 {
 	t_op	op;
 
@@ -42,4 +42,5 @@ void	clear_context(t_context *ctx)
 		clear_stack(ctx->b);
 	if (ctx->ops)
 		clear_ops(ctx->ops);
+	free(ctx);
 }

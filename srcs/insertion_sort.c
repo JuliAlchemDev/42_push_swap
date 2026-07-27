@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 16:42:36 by iualkhim          #+#    #+#             */
-/*   Updated: 2026/07/25 13:37:59 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 14:46:59 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	insertion_sort(t_context *ctx)
 		count_rot = 0;
 		while (ctx->a->data[0] < ctx->b->data[0] && count_rot < ctx->b->size)
 		{
-			op(RB, ctx);
+			op(OP_RB, ctx);
 			count_rot++;
 		}
-		pb(ctx);
+		op(OP_PB, ctx);
 		while (count_rot > 0)
 		{
-			op(RRB, ctx);
+			op(OP_RRB, ctx);
 			count_rot--;
 		}
 	}
 	while (ctx->b->size > 0)
-		op(PA, ctx);
+		op(OP_PA, ctx);
 }
