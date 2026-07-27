@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:55:12 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/03 17:12:52 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 15:27:17 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ float	compute_disorder(t_stack *stack)
 	i = 0;
 	j = 0;
 	if (stack->size <= 1)
-		return (1.0);
+		return (0.0);
 	while (i < stack->size - 1)
 	{
 		j = i + 1;
