@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:02:52 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/22 21:45:27 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 15:24:01 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,17 @@ static void	adaptive_strategy(t_context *ctx)
 
 void	select_sort(t_context *ctx)
 {
-	if (ft_strcmp(ctx->strategy, "--simple") == 0)
-		insertion_sort(ctx);
-	else if (ft_strcmp(ctx->strategy, "--medium") == 0)
-		chunk_sort(ctx);
-	else if (ft_strcmp(ctx->strategy, "--complex") == 0)
-		quick_sort(ctx);
-	else
-		adaptive_strategy(ctx);
+	if (ctx->disorder > 0.0)
+	{
+		if (ft_strcmp(ctx->strategy, "--simple") == 0)
+			insertion_sort(ctx);
+		else if (ft_strcmp(ctx->strategy, "--medium") == 0)
+			chunk_sort(ctx);
+		else if (ft_strcmp(ctx->strategy, "--complex") == 0)
+			quick_sort(ctx);
+		else
+			adaptive_strategy(ctx);
+	}
 	if (ctx->bench_flag)
 		ft_putbench(ctx);
 }
