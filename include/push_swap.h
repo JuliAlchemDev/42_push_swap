@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 16:48:26 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 17:13:10 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../Libft/libft.h"
-# include "../libftprintf/ft_printf.h"
 # include "structs.h"
 # include <stdlib.h>
 # include <stdio.h>
