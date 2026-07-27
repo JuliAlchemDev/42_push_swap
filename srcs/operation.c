@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 18:00:44 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 00:19:33 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 15:10:15 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 static	void	init_operations_data(t_op_prop *ops_list)
 {
-	static const char	*const	name_list[OP_COUNT] = {
-		"sa", "sb", "ss", "pa", "pb", "ra", "rb",
-		"rr", "rra", "rrb", "rrr"
-	};
-	static const t_operation	apply_list[OP_COUNT] = {
-		&sa, &sb, &ss, &pa, &pb, &ra, &rb,
-		&rr, &rra, &rrb, &rrr
-	};
-	t_op	op;
+	static const char *const	name_list[OP_COUNT] = {"sa", "sb", "ss", "pa",
+		"pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+	static const t_operation	apply_list[OP_COUNT] = {&sa, &sb, &ss, &pa,
+		&pb, &ra, &rb, &rr, &rra, &rrb, &rrr};
+	t_op						op;
 
 	op = 0;
 	while (op < OP_COUNT)
