@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/26 10:45:02 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/27 16:48:26 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <limits.h>
 
 void			clear_context(t_context *ctx);
+void			clear_stack(t_stack *stack);
 void			display_stacks(t_context *ctx);
 t_stack			*load_stack(size_t size, char *nums[]);
 void			putstack(t_stack *s);

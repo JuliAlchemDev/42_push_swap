@@ -58,7 +58,10 @@ t_stack	*load_stack(size_t size, char *nums[])
 		{
 			if (!is_valid_int(nums[i])
 				|| is_duplicated(nums[i], stack->data, i))
+			{
+				clear_stack(stack);
 				return (NULL);
+			}
 			stack->data[i] = ft_atoi(nums[i]);
 			i++;
 		}
