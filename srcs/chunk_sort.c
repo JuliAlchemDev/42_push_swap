@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:42:51 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 20:54:49 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/29 20:28:59 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static	void	sort_chunk(t_context *ctx, size_t chunk_size)
 	size_t	c;
 	size_t	i;
 
-	printf("Chunk size = %lu\n", chunk_size);
 	if (ctx->a->data[0] > ctx->a->data[1])
 		op(OP_SA, ctx);
 	op(OP_PB, ctx);
@@ -52,40 +51,79 @@ static	void	sort_chunk(t_context *ctx, size_t chunk_size)
 		}
 		op(OP_PB, ctx);
 		i++;
-		display_stacks(ctx);
 	}
 	rewind_b(ctx, &c, i);
-	display_stacks(ctx);
 }
 
-static	void	merge_chunks(t_context *ctx, size_t chunk_size)
+static	void	find_next_insertion_spot(t_context *ctx, size_t *c)
 {
-	size_t	c;
 	size_t	i;
 
-	c = 0;
 	i = 0;
+	if (*c == 0)
+	{
+		if ((ctx->b->data[0] > ctx->a->data[0])
+			&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
+			return ;
+		if (ctx->b->data[0] < ctx->a->data[0])
+			return ;
+	}
+	else
+	{
+		if ((ctx->b->data[0] < ctx->a->data[0])
+			&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
+			return ;
+	}
+	if (ctx->b->data[0] < ctx->a->data[0])
+	{
+		i = ctx->a->size - *c;
+		while (ctx->b->data[0] > ctx->a->data[i])
+			i++;
+	}
+	else
+	{
+		while ((ctx->b->data[0] > ctx->a->data[i]) && (i < ctx->a->size - *c))
+			i++;
+	}
+	if (i <= ctx->a->size / 2)
+	{
+		while (i > 0)
+		{
+			op(OP_RA, ctx);
+			i--;
+			(*c)++;
+			if (*c == ctx->a->size)
+				*c = 0;
+		}
+	}
+	else
+	{
+		while (i < ctx->a->size)
+		{
+			op(OP_RRA, ctx);
+			i++;
+			if (*c == 0)
+				*c = ctx->a->size;
+			(*c)--;
+		}
+	}
+}
+
+static	void	merge_chunks(t_context *ctx)
+{
+	size_t	c;
+
+	c = 0;
 	while (ctx->b->size > 0)
 	{
-		while ((ctx->b->data[0] < ctx->a->data[0]) && (c < ctx->a->size))
-		{
-			op(OP_RA, ctx);
-			c++;
-		}
-		while ((ctx->b->data[0] > ctx->a->data[0]) && (c < ctx->a->size))
-		{
-			op(OP_RA, ctx);
-			c++;
-		}
-		if (ctx->b->data[0] < ctx->a->data[0])
-			c %= ctx->a->size;
+		find_next_insertion_spot(ctx, &c);
 		op(OP_PA, ctx);
-		i++;
-		c %= ctx->a->size;
-		display_stacks(ctx);
+		if (ctx->a->data[0] < ctx->a->data[ctx->a->size - 1])
+			c = 0;
+		if (ctx->a->data[0] > ctx->a->data[1])
+			c = ctx->a->size - 1;
 	}
 	rewind_a(ctx, &c, ctx->a->size);
-	display_stacks(ctx);
 }
 
 void	chunk_sort(t_context *ctx)
@@ -93,9 +131,8 @@ void	chunk_sort(t_context *ctx)
 	size_t	sqrt_n;
 
 	sqrt_n = ft_floor_sqrt(ctx->a->size);
-	display_stacks(ctx);
 	while (ctx->a->size > 3)
 		sort_chunk(ctx, sqrt_n);
 	sort_a_simple(ctx);
-	merge_chunks(ctx, sqrt_n);
+	merge_chunks(ctx);
 }
