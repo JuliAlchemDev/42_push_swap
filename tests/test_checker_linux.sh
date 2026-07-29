@@ -1,7 +1,9 @@
 #!/bin/sh
+
 total_runs=100
 size=500
 alg="--adaptive"
+
 pass_threshold=12000
 good_threshold=8000
 excellent_threshold=5500
@@ -26,6 +28,7 @@ echo "Algorithm: $alg"
 echo " - total runs: $total_runs"
 echo " - size stack: $size"
 echo " - thresholds: <${pass_threshold} pass, <${good_threshold} good, <${excellent_threshold} excellent."
+
 error_count=0
 fail_count=0
 pass_count=0
@@ -34,11 +37,20 @@ excellent_count=0
 
 for i in $(seq "$total_runs")
 do
-    shuf -i 0-9999 -n "$size" > args.txt
-    output=$(./push_swap "$alg" $(cat args.txt) 2>&1)
+    args=$(shuf -i 0-9999 -n "$size" | tr '\n' ' ')
+
+    output=$(./push_swap "$alg" $args 2>&1)
     lines=$(printf '%s\n' "$output" | wc -l)
 
     if [ "$lines" -eq 1 ] && [ "$output" = "Error" ]; then
+        error_count=$((error_count + 1))
+        printf '%b' "${RED}!${RESET}"
+        continue
+    fi
+
+    checker=$(printf '%s\n' "$output" | ./checker_linux $args)
+
+    if [ "$checker" != "OK" ]; then
         error_count=$((error_count + 1))
         printf '%b' "${RED}!${RESET}"
     elif [ "$lines" -ge "$pass_threshold" ]; then
@@ -63,5 +75,3 @@ printf '%b\n' "${WHITE}FAIL:${RESET} $fail_count"
 printf '%b\n' "${ORANGE}PASS:${RESET} $pass_count"
 printf '%b\n' "${YELLOW}GOOD:${RESET} $good_count"
 printf '%b\n' "${GREEN}EXCELLENT:${RESET} $excellent_count"
-
-rm -f args.txt
