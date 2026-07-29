@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 17:44:49 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 20:20:46 by aserio           ###   ########.fr       */
+/*   Updated: 2026/07/28 10:08:10 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rewind_a(t_context *ctx, size_t *c, size_t size)
 
 void	rewind_b(t_context *ctx, size_t *c, size_t size)
 {
-	if (size / 2 > *c)
+	if (size / 2 >= *c)
 	{
 		while (*c > 0)
 		{
