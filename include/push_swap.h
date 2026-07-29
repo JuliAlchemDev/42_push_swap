@@ -28,6 +28,7 @@ void			init_operations_list(t_context *ctx);
 int				is_valid_int(char *s);
 int				ft_strcmp(const char *s1, const char *s2);
 t_context		*input_parser(int argc, char *argv[]);
+t_stack			*get_stack(int size, char **nums);
 void			error(t_context *ctx);
 void			ft_putdisorder(float d);
 float			compute_disorder(t_stack *stack);

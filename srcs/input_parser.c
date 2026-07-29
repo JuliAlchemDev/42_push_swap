@@ -29,22 +29,6 @@ static int	is_bench(char *s)
 	return (0);
 }
 
-static t_stack	*get_stack(int size, char **nums)
-{
-	t_stack	*stack;
-
-	if (size == 1)
-	{
-		nums = ft_split(nums[0], ' ');
-		while (nums[size])
-			size++;
-	}
-	stack = load_stack(size, nums);
-	if (!stack)
-		return (NULL);
-	return (stack);
-}
-
 static void	init_context(t_context *ctx)
 {
 	ctx->bench_flag = 0;
