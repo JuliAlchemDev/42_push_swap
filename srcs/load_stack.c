@@ -50,6 +50,8 @@ t_stack	*load_stack(size_t size, char *nums[])
 	t_stack	*stack;
 	size_t	i;
 
+	if (size == 0)
+		return (NULL);
 	stack = create_stack(size);
 	i = 0;
 	if (nums)
