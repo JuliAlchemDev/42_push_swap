@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:57:18 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 13:11:16 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/01 12:28:59 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ void	quick_sort_b(t_context *ctx, size_t size)
 			op(OP_RB, ctx);
 		j++;
 	}
+	display_stacks(ctx);
 	rewind_stack(ctx, j, pivot_index);
+	display_stacks(ctx);
 	quick_sort_a(ctx, pivot_index);
 	quick_sort_b(ctx, size - pivot_index);
 }
