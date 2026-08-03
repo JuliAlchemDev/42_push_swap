@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:57:18 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/03 20:14:47 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/03 20:36:56 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,6 @@ void	quick_sort_b(t_context *ctx, size_t size)
 	pivot = avg_pivot(ctx->b, size);
 	j = 0;
 	pas = count_pas(ctx, size, pivot);
-	if (ctx->debug_flag)
-	{
-		printf("Stack b, substack size =\t%zu\n", size);
-		printf("\t\t pivot =\t%f\n", pivot);
-		printf("\t\t pas =\t\t%zu\n", pas);
-	}
 	while ((j < size) && (pivot_index < pas))
 	{
 		if (ctx->b->data[0] > pivot)
@@ -84,9 +78,7 @@ void	quick_sort_b(t_context *ctx, size_t size)
 			op(OP_RB, ctx);
 		j++;
 	}
-	display_stacks(ctx);
 	rewind_stack(ctx, j, pivot_index);
-	display_stacks(ctx);
 	quick_sort_a(ctx, pivot_index);
 	quick_sort_b(ctx, size - pivot_index);
 }
