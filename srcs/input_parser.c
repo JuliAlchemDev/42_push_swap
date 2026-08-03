@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 16:31:40 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/03 15:29:05 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,17 @@ static int	is_bench(char *s)
 	return (0);
 }
 
+static int	is_debug(char *s)
+{
+	if (!ft_strcmp(s, "--debug"))
+		return (1);
+	return (0);
+}
+
 static void	init_context(t_context *ctx)
 {
 	ctx->bench_flag = 0;
+	ctx->debug_flag = 0;
 	ctx->strategy = NULL;
 	ctx->total_ops = 0;
 	init_operations_list(ctx);
@@ -46,12 +54,14 @@ t_context	*input_parser(int argc, char *argv[])
 	init_context(ctx);
 	i = 1;
 	while ((i < argc) && (is_strategy(argv[i])
-			|| is_bench(argv[i])))
+			|| is_bench(argv[i]) || is_debug(argv[i])))
 	{
 		if (is_strategy(argv[i]))
 			ctx->strategy = argv[i];
 		if (is_bench(argv[i]))
 			ctx->bench_flag = 1;
+		if (is_debug(argv[i]))
+			ctx->debug_flag = 1;
 		i++;
 	}
 	if (!ctx->strategy)
