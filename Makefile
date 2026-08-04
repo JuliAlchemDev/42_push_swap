@@ -14,7 +14,6 @@ SRCS = \
 	   srcs/ft_putdisorder.c \
 	   srcs/ft_strcmp.c \
 	   srcs/input_parser.c \
-	   srcs/input_parser_utils.c \
 	   srcs/insertion_sort.c \
 	   srcs/is_valid_int.c \
        srcs/load_stack.c \
