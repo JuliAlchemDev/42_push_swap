@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/04 15:31:40 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/04 15:31:57 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,23 @@ static t_stack	*get_stack(size_t size, char **nums)
 {
 	t_stack	*stack;
 	char	*argv_join;
+	char	*argv_tmp;
 	size_t	c;
 	
 	c = 0;
-	argv_join = malloc(sizeof(char));
-	*argv_join = ' ';
+	argv_join = ft_calloc(sizeof(char), 2);
 	while (c < size)
 	{
-		argv_join = ft_strjoin(argv_join, nums[c]);
-		argv_join = ft_strjoin(argv_join, " ");
+		argv_tmp = ft_strjoin(argv_join, nums[c]);
+		free(argv_join);
+		argv_join = ft_strjoin(argv_tmp, " ");
+		free(argv_tmp);
 		c++;
-		printf("%s\n", argv_join);
 	}
-	printf("1\n");
 	nums = ft_split(argv_join, ' ');
-	printf("2\n");
+	size = 0;
 	while (nums[size])
 		size++;
-	printf("%zu\n", size);
 	stack = load_stack(size, nums);
 	if (!stack)
 		return (NULL);
