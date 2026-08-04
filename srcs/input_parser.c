@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/03 20:45:00 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/04 16:33:46 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	is_option(char *s)
 	return (0);
 }
 
-static t_context	*init_context(t_context *ctx)
+static t_context	*init_context()
 {
 	t_context	*ctx;
 
@@ -47,7 +47,7 @@ t_context	*input_parser(int argc, char *argv[])
 	t_context	*ctx;
 	int			i;
 
-	ctx = init_context(ctx);
+	ctx = init_context();
 	i = 1;
 	while ((i < argc) && is_option(argv[i]))
 	{
