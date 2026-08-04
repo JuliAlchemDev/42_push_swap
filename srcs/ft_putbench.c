@@ -15,7 +15,7 @@
 static void	ft_putstrategy(t_context *ctx)
 {
 	if (ft_strcmp(ctx->strategy, "--simple") == 0)
-		ft_putendl_fd("[bench] strategy: Simple / O(n)", 2);
+		ft_putendl_fd("[bench] strategy: Simple / O(n\xc2\xb2)", 2);
 	else if (ft_strcmp(ctx->strategy, "--medium") == 0)
 		ft_putendl_fd("[bench] strategy: Intermediate / O(n√n)", 2);
 	else if (ft_strcmp(ctx->strategy, "--complex") == 0)
