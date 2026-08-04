@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:55:41 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 13:11:05 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/03 20:36:10 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static	void	handle_simple_cases(t_context *ctx, size_t size)
 {
+	if (ctx->debug_flag)
+		printf("Stack a, substack size = %zu\n", size);
+	if (size == 1)
+		return ;
 	if (size == 2)
 		if (ctx->a->data[0] > ctx->a->data[1])
 			op(OP_SA, ctx);
@@ -37,6 +41,8 @@ static	size_t	count_pbs(t_context *ctx, size_t size, int pivot)
 
 static	void	rewind_stack(t_context *ctx, size_t j, size_t pivot_index)
 {
+	if (pivot_index == ctx->a->size)
+		rewind_a(ctx, &j, pivot_index);
 	while (j > pivot_index)
 	{
 		op(OP_RRA, ctx);
