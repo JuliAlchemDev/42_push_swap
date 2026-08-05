@@ -26,7 +26,7 @@ This project was developed in pairs as required by the 42 curriculum:
 
 ### Implemented Algorithms & Complexity Justification
 
-#### 1. Insertion Sort (Simple strategy)
+#### 1. Insertion Sort (Simple strategy | desorder < 0.2)
 
 The algorithm maintains **stack B** in circular descending order, inserting each element into its correct position using the shortest rotation path. Once all elements have been moved, **stack B** is aligned with the maximum element on top and pushed back to **stack A**, reducing unnecessary rotations.
 
@@ -34,10 +34,10 @@ Chosen as the **Simple** strategy because it performs well on inputs with low di
 
 - **Time Complexity:** O(n²)
 
-#### 2. Quick Sort (Medium strategy)
+#### 2. Quick Sort (Medium strategy | 0.2 ≤ desorder < 0.5)
 ...
 
-#### 3. Chunk Sort (Complex strategy)
+#### 3. Chunk Sort (Complex strategy | disorder ≥ 0.5)
 ...
 
 ## Instructions
