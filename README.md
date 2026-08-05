@@ -35,7 +35,13 @@ Chosen as the **Simple** strategy because it performs well on inputs with low di
 - **Time Complexity:** O(n²)
 
 #### 2. Chunk Sort (Medium strategy | 0.2 ≤ desorder < 0.5)
-...
+
+The Chunk Sort algorithm divides the original stack a into `ceil(√n)` sub-stacks each of length up to `floor(√n)`.
+The `ceil(√n)` sub-stacks are created by pushing one-by-one the elements of the stack `a` into stack `b`, the calls to function `pb` are intervalled by the rotations `rb` and `rrb` to make each substack sorted and keep them separated.
+
+The last four or less elements of `a` are sorted with the functions `sort_a_small` which handles the simplest cases.
+The sorted sub-stacks are moved from `b` into `a` with an insertion sort algorithm until the stack `b` is empty.
+
 - **Time Complexity:** O(n√n)
 
 #### 3. Quick Sort (Complex strategy | disorder ≥ 0.5)
