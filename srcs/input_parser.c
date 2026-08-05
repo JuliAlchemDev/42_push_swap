@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/04 16:33:46 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 00:34:16 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	is_option(char *s)
 	return (0);
 }
 
-static t_context	*init_context()
+static t_context	*init_context(void)
 {
 	t_context	*ctx;
 

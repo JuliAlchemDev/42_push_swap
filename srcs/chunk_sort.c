@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:42:51 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/05 14:29:39 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 16:57:06 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,13 @@ static	void	find_next_insertion_spot(t_context *ctx, size_t *c)
 	size_t	i;
 
 	i = 0;
-	if (*c == 0)
-	{
-		if ((ctx->b->data[0] > ctx->a->data[0])
-			&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
-			return ;
-		if (ctx->b->data[0] < ctx->a->data[0])
-			return ;
-	}
-	else
-	{
-		if ((ctx->b->data[0] < ctx->a->data[0])
-			&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
-			return ;
-	}
+	if (*c == 0
+		&& ((ctx->b->data[0] > ctx->a->data[ctx->a->size - 1])
+			|| (ctx->b->data[0] < ctx->a->data[0])))
+		return ;
+	else if ((ctx->b->data[0] < ctx->a->data[0])
+		&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
+		return ;
 	if (ctx->b->data[0] < ctx->a->data[0])
 	{
 		i = ctx->a->size - *c;
@@ -85,28 +78,10 @@ static	void	find_next_insertion_spot(t_context *ctx, size_t *c)
 		while ((ctx->b->data[0] > ctx->a->data[i]) && (i < ctx->a->size - *c))
 			i++;
 	}
-	if (i <= ctx->a->size / 2)
-	{
-		while (i > 0)
-		{
-			op(OP_RA, ctx);
-			i--;
-			(*c)++;
-			if (*c == ctx->a->size)
-				*c = 0;
-		}
-	}
-	else
-	{
-		while (i < ctx->a->size)
-		{
-			op(OP_RRA, ctx);
-			i++;
-			if (*c == 0)
-				*c = ctx->a->size;
-			(*c)--;
-		}
-	}
+	*c = (*c + i) % ctx->a->size;
+	i = ctx->a->size - i;
+	rewind_a(ctx, &i, ctx->a->size);
+	display_stacks(ctx);
 }
 
 static	void	merge_chunks(t_context *ctx)
