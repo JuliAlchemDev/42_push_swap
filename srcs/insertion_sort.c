@@ -6,13 +6,13 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 16:42:36 by iualkhim          #+#    #+#             */
-/*   Updated: 2026/07/28 18:20:34 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 15:20:33 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static size_t	find_insert_pos(t_stack *b, int value)
+static size_t	find_b_insert_pos(t_stack *b, int value)
 {
 	size_t	i;
 	int		current;
@@ -35,7 +35,7 @@ static size_t	find_insert_pos(t_stack *b, int value)
 	return (0);
 }
 
-static void	rotate_to_pos(t_context *ctx, size_t pos)
+static void	rotate_b_to_pos(t_context *ctx, size_t pos)
 {
 	if (pos <= ctx->b->size / 2)
 	{
@@ -78,14 +78,14 @@ void	insertion_sort(t_context *ctx)
 			op(OP_PB, ctx);
 			continue ;
 		}
-		pos = find_insert_pos(ctx->b, ctx->a->data[0]);
-		rotate_to_pos(ctx, pos);
+		pos = find_b_insert_pos(ctx->b, ctx->a->data[0]);
+		rotate_b_to_pos(ctx, pos);
 		op(OP_PB, ctx);
 	}
 	if (ctx->a->size == 0)
 	{
 		pos = find_max_pos(ctx->b);
-		rotate_to_pos(ctx, pos);
+		rotate_b_to_pos(ctx, pos);
 	}
 	while (ctx->b->size > 0)
 		op(OP_PA, ctx);

@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 16:42:51 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/29 20:28:59 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 14:29:39 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static	void	sort_chunk(t_context *ctx, size_t chunk_size)
 	op(OP_PB, ctx);
 	i = 2;
 	c = 0;
-	while ((i < chunk_size) && (ctx->a->size > 3))
+	while ((i < chunk_size) && (ctx->a->size > 4))
 	{
 		while ((ctx->a->data[0] > ctx->b->data[ctx->b->size - 1]) && (c > 0))
 		{
@@ -131,8 +131,8 @@ void	chunk_sort(t_context *ctx)
 	size_t	sqrt_n;
 
 	sqrt_n = ft_floor_sqrt(ctx->a->size);
-	while (ctx->a->size > 3)
+	while (ctx->a->size > 4)
 		sort_chunk(ctx, sqrt_n);
-	sort_a_simple(ctx);
+	sort_a_small(ctx);
 	merge_chunks(ctx);
 }

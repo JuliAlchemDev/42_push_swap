@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:02:52 by aserio            #+#    #+#             */
-/*   Updated: 2026/07/27 15:24:01 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 14:16:09 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void	adaptive_strategy(t_context *ctx)
 
 void	select_sort(t_context *ctx)
 {
-	if (ctx->disorder > 0.0)
+	if (ctx->a->size <= 4)
+		sort_a_small(ctx);
+	else if (ctx->disorder > 0.0)
 	{
 		if (ft_strcmp(ctx->strategy, "--simple") == 0)
 			insertion_sort(ctx);
