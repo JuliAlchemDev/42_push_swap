@@ -73,3 +73,11 @@ Chosen as the **Simple** strategy because it performs well on inputs with low di
             ./push_swap --bench 5 4 3 2 1 2> bench.txt
     ```
 ## Resources
+
+- 🇪🇸 Notación Big O | Análisis de algoritmos de forma sencilla -> [Youtube](https://www.youtube.com/watch?v=MyAiCtuhiqQ)
+- 🇬🇧 Insertion Sort Algorithm -> [GeeksforGeeks](https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/)
+- 🇬🇧 Quick Sort -> [GeeksforGeeks](https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/)
+- 🇬🇧 The Chunked Merge Sort Approach -> [Medium](https://satyadeepmaheshwari.medium.com/sorting-large-datasets-with-limited-memory-the-chunked-merge-sort-approach-318275275c81)
+
+---
+**AI Usage:** I used [Claude](https://claude.ai) (Anthropic) as an AI augmentation tool throughout my learning process — breaking the project down into smaller parts before coding, discussing architecture and organization decisions, and getting guidance on documentation writing and evaluation preparation.
