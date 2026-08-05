@@ -2,7 +2,7 @@
 
 
 ## Description
-The main goal of the `push_swap` project is to create a program that sorts a randomly generated list of unique numbers using only a small, predefined set of operations. Beyond simply sorting, the program evaluates the disorder of the input and adapts its approach to minimize the number of moves, offering detailed benchmarking data through the `--bench` flag. 
+The main goal of the `push_swap` project is to create a program that sorts a list of unique numbers using only a small, predefined set of operations. Beyond simply sorting, the program evaluates the disorder of the input and adapts its approach to minimize the number of moves, offering detailed benchmarking data through the `--bench` flag. 
 
 This project is an exercise in **algorithmic thinking**, understanding **Big O notation**, comparing **sorting strategies**, and **optimizing solutions** when your tools are limited.
 
@@ -58,7 +58,10 @@ Chosen as the **Simple** strategy because it performs well on inputs with low di
     - The program accepts numbers either as separate arguments or as a single quoted string, e.g. `5 4 3 2 1`, `"5 4 3 2 1"` or mix of both formats:
     ```bash
             ./push_swap 5 "4 3" 2 1
-    ```
+    ```   
+    ---
+    ##### NOTE: All flags must be placed BEFORE the number list, otherwise the program exits with an error message.
+    ---
     - Force a specific strategy with **--simple**, **--medium**, or **--complex**. Otherwise, the program will use an adaptive strategy based on the calculated disorder of the input:
     ```bash
             ./push_swap --simple 5 4 3 2 1
