@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/05 14:04:46 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 18:23:22 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			sort_a_small(t_context *ctx);
 void			quick_sort(t_context *ctx);
 void			quick_sort_a(t_context *ctx, size_t size);
 void			quick_sort_b(t_context *ctx, size_t size);
-float			avg_pivot(t_stack *stack, size_t size);
+float			median_pivot(t_stack *stack, size_t size);
 
 // Operations wrapper
 

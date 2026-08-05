@@ -6,25 +6,36 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 03:38:27 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/03 20:49:54 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 18:27:47 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-float	avg_pivot(t_stack *stack, size_t size)
+float	median_pivot(t_stack *stack, size_t size)
 {
+	size_t	c;
 	size_t	i;
+	size_t	j;
 	float	pivot;
 
 	pivot = 0;
 	i = 0;
-	while (i < size)
+	c = 0;
+	while (c != size / 2)
 	{
-		pivot += (float) stack->data[i];
+		pivot = stack->data[i];
+		c = 0;
+		j = 0;
+		while (j < size)
+		{
+			if (stack->data[j] <= pivot)
+				c++;
+			j++;
+		}
 		i++;
 	}
-	return (pivot / (float) size);
+	return (pivot);
 }
 
 void	quick_sort(t_context *ctx)
