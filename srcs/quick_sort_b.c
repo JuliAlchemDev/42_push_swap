@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:57:18 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/03 20:36:56 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/05 18:23:05 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	quick_sort_b(t_context *ctx, size_t size)
 	if (size <= 2)
 		return (handle_simple_cases(ctx, size));
 	pivot_index = 0;
-	pivot = avg_pivot(ctx->b, size);
+	pivot = median_pivot(ctx->b, size);
 	j = 0;
 	pas = count_pas(ctx, size, pivot);
 	while ((j < size) && (pivot_index < pas))
