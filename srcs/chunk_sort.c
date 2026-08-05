@@ -60,21 +60,14 @@ static	void	find_next_insertion_spot(t_context *ctx, size_t *c)
 	size_t	i;
 
 	i = 0;
-	if (*c == 0)
-	{
-		if ((ctx->b->data[0] > ctx->a->data[0])
+	if (*c == 0
+		&& ((ctx->b->data[0] > ctx->a->data[ctx->a->size - 1])
+			|| (ctx->b->data[0] < ctx->a->data[0])))
+			return ;
+		else if ((ctx->b->data[0] < ctx->a->data[0])
 			&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
 			return ;
 		if (ctx->b->data[0] < ctx->a->data[0])
-			return ;
-	}
-	else
-	{
-		if ((ctx->b->data[0] < ctx->a->data[0])
-			&& (ctx->b->data[0] > ctx->a->data[ctx->a->size - 1]))
-			return ;
-	}
-	if (ctx->b->data[0] < ctx->a->data[0])
 	{
 		i = ctx->a->size - *c;
 		while (ctx->b->data[0] > ctx->a->data[i])
