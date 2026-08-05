@@ -49,14 +49,14 @@ The sorted sub-stacks are moved from `b` into `a` with an insertion sort algorit
 The quick sort algorithm consists in recursively dividing a list into two sub-lists with smaller and greater elements than a given value called pivot.
 
 This implementation of quick sort takes advantage of the two stacks structure by employing two function `quick_sort_a` and `quick_sort_b`:
-- The `quick_sort_a` moves larger elements than the pivot to stack `b` while leaves the smaller elements in stack `a`.
-- The `quick_sort_b` moves smaller elements than the pivot to stack `a` while leaving larger elements in stack `b`.
+- The `quick_sort_a` function looks at the elemenents in the sub-stack of length `size` inside `a` and moves elements smaller than or equal to the `pivot` to stack `b` while leaving the larger elements than the `pivot` in stack `a`. If a substack inside `a` has two or less elements they are sorted* and left in `a`.
+- The `quick_sort_b` function looks at the elemenents in the sub-stack of length `size` inside `b` and moves larger elements than the `pivot` to stack `a` while leaving elements smaller than or equal to `pivot` in stack `b`. If a substack inside `b` has two or less elements they are moved two stack `a`, this guarantees that eventually all elements are moved back to stack `a` sorted.
 - Each function `quick_sort_a` and `quick_sort_b` recursively call both of themselves on the corresponding half of substack created by separating the elements.
-- When a substack has two or less elements they are moved two stack `a`, this guarantees that eventually all elements are moved back to stack `a` sorted.
-- Choice of the pivot: the `pivot` is chosen by taking the median of the values of the current sub-stack (or stack).
+- The `pivot` is chosen by taking the median of the values of the current sub-stack (or stack), this guarantees that each substack has `size / 2 ± 1` elements thus the recursion is always reaching an end.
 
 - **Time Complexity:** O(n log n)
 
+*there is only the case for two elements in the wrong order that are being swapped in place.
 ## Instructions
 
 1. Clone the project and enter the folder:
