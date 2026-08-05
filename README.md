@@ -34,11 +34,13 @@ Chosen as the **Simple** strategy because it performs well on inputs with low di
 
 - **Time Complexity:** O(n²)
 
-#### 2. Quick Sort (Medium strategy | 0.2 ≤ desorder < 0.5)
+#### 2. Chunk Sort (Medium strategy | 0.2 ≤ desorder < 0.5)
 ...
+- **Time Complexity:** O(n√n)
 
-#### 3. Chunk Sort (Complex strategy | disorder ≥ 0.5)
+#### 3. Quick Sort (Complex strategy | disorder ≥ 0.5)
 ...
+- **Time Complexity:** O(n log n)
 
 ## Instructions
 
