@@ -45,7 +45,16 @@ The sorted sub-stacks are moved from `b` into `a` with an insertion sort algorit
 - **Time Complexity:** O(n√n)
 
 #### 3. Quick Sort (Complex strategy | disorder ≥ 0.5)
-...
+
+The quick sort algorithm consists in recursively dividing a list into two sub-lists with smaller and greater elements than a given value called pivot.
+
+This implementation of quick sort takes advantage of the two stacks structure by employing two function `quick_sort_a` and `quick_sort_b`:
+- The `quick_sort_a` moves larger elements than the pivot to stack `b` while leaves the smaller elements in stack `a`.
+- The `quick_sort_b` moves smaller elements than the pivot to stack `a` while leaving larger elements in stack `b`.
+- Each function `quick_sort_a` and `quick_sort_b` recursively call both of themselves on the corresponding half of substack created by separating the elements.
+- When a substack has two or less elements they are moved two stack `a`, this guarantees that eventually all elements are moved back to stack `a` sorted.
+- Choice of the pivot: the `pivot` is chosen by taking the median of the values of the current sub-stack (or stack).
+
 - **Time Complexity:** O(n log n)
 
 ## Instructions
