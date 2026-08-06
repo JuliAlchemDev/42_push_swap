@@ -24,6 +24,18 @@ This project was developed in pairs as required by the 42 curriculum:
     - Input parser (mixed arguments support)
     - `Insertion sort` implementation and optimization
 
+### Adaptive Strategy (Default run)
+
+The program selects one of three strategies at runtime based on a **disorder metric** to perform best for that level: 
+
+| Disorder      | Strategy       | Time Complexity |
+|---------------|----------------|------------------|
+| `< 0.2`       | Insertion Sort | O(n²)            |
+| `0.2 – 0.5`   | Chunk Sort     | O(n√n)           |
+| `≥ 0.5`       | Quick Sort     | O(n log n)       |
+
+By measuring disorder before sorting, the program pays a small upfront cost (O(n)) to avoid the worst-case behavior of any single fixed strategy.
+
 ### Implemented Algorithms & Complexity Justification
 
 #### 1. Insertion Sort (Simple strategy | desorder < 0.2)
@@ -57,6 +69,7 @@ This implementation of quick sort takes advantage of the two stacks structure by
 - **Time Complexity:** O(n log n)
 
 *there is only the case for two elements in the wrong order that are being swapped in place.
+
 ## Instructions
 
 1. Clone the project and enter the folder:
