@@ -2,7 +2,7 @@ NAME = push_swap
 
 SRC_DIR = ./srcs
 OBJ_DIR = ./obj
-LIB_DIR = ./Libft
+LIB_DIR = ./libft
 DEP_DIR = ./include
 TESTS_DIR = ./tests
 SRCS = \
@@ -61,8 +61,6 @@ $(LIBFT):
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(FLAGS) $^ -o $@
 
-.PHONY: all clean fclean re tests
-
 clean:
 	$(RM) $(OBJS)
 
@@ -70,6 +68,8 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re tests
 
 $(TESTS_DIR)/%.sh:
 	chmod +x $@
