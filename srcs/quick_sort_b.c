@@ -6,25 +6,47 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:57:18 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/05 18:23:05 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/06 14:02:06 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+static	void	move_to_a(t_context *ctx, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		op(OP_PA, ctx);
+		i++;
+	}
+}
+
 static	void	handle_simple_cases(t_context *ctx, size_t size)
 {
-	if (ctx->debug_flag)
-		printf("Stack b, substack size = %zu\n", size);
-	if (size == 1)
-		op(OP_PA, ctx);
-	if (size == 2)
-	{
+	if (size >= 2)
 		if (ctx->b->data[0] < ctx->b->data[1])
 			op(OP_SB, ctx);
-		op(OP_PA, ctx);
-		op(OP_PA, ctx);
+	if (size >= 3)
+	{
+		if ((ctx->b->data[0] > ctx->b->data[1])
+			&& (ctx->b->data[0] > ctx->b->data[2]))
+		{
+			op(OP_PA, ctx);
+			return (handle_simple_cases(ctx, 2));
+		}
+		if (ctx->a->data[1] < ctx->a->data[2])
+		{
+			op(OP_RB, ctx);
+			op(OP_SB, ctx);
+			op(OP_RRB, ctx);
+		}
+		if (ctx->a->data[0] < ctx->a->data[1])
+			op(OP_SB, ctx);
 	}
+	move_to_a(ctx, size);
 }
 
 static	size_t	count_pas(t_context *ctx, size_t size, int pivot)
@@ -61,7 +83,7 @@ void	quick_sort_b(t_context *ctx, size_t size)
 	size_t	j;
 	size_t	pas;
 
-	if (size <= 2)
+	if (size <= 3)
 		return (handle_simple_cases(ctx, size));
 	pivot_index = 0;
 	pivot = median_pivot(ctx->b, size);
