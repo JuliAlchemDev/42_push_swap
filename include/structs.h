@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 16:03:07 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/03 11:58:34 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/06 20:08:57 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct s_op_prop
 typedef struct s_context
 {
 	int				bench_flag;
-	int				debug_flag;
 	float			disorder;
 	char			*strategy;
 	int				total_ops;
