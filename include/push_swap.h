@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/05 18:23:22 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/06 18:51:30 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "../Libft/libft.h"
 # include "structs.h"
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
 
 void			clear_context(t_context *ctx);
 void			clear_stack(t_stack *stack);
