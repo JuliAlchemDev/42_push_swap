@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 16:42:36 by iualkhim          #+#    #+#             */
-/*   Updated: 2026/08/05 15:20:33 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/06 20:21:20 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	insertion_sort(t_context *ctx)
 	pos = 0;
 	while (ctx->a->size >= 1)
 	{
+		display_stacks(ctx);
 		if (ctx->b->size == 0)
 		{
 			op(OP_PB, ctx);
@@ -80,13 +81,16 @@ void	insertion_sort(t_context *ctx)
 		}
 		pos = find_b_insert_pos(ctx->b, ctx->a->data[0]);
 		rotate_b_to_pos(ctx, pos);
+		display_stacks(ctx);
 		op(OP_PB, ctx);
 	}
 	if (ctx->a->size == 0)
 	{
 		pos = find_max_pos(ctx->b);
 		rotate_b_to_pos(ctx, pos);
+		display_stacks(ctx);
 	}
 	while (ctx->b->size > 0)
 		op(OP_PA, ctx);
+	display_stacks(ctx);
 }
