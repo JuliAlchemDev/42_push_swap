@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/05 00:34:16 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/06 17:07:50 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_context	*input_parser(int argc, char *argv[])
 	}
 	if (!ctx->strategy)
 		ctx->strategy = "--adaptive";
+	if (argc - i == 0)
+		exit (0);
 	ctx->a = get_stack(argc - i, argv + i);
 	if (!ctx->a)
 		error(ctx);
