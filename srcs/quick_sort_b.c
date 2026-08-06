@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 21:57:18 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/05 18:23:05 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/06 13:04:28 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static	void	handle_simple_cases(t_context *ctx, size_t size)
 {
-	if (ctx->debug_flag)
-		printf("Stack b, substack size = %zu\n", size);
 	if (size == 1)
 		op(OP_PA, ctx);
 	if (size == 2)
