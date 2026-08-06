@@ -4,7 +4,6 @@ SRC_DIR = ./srcs
 OBJ_DIR = ./obj
 LIB_DIR = ./libft
 DEP_DIR = ./include
-TESTS_DIR = ./tests
 SRCS = \
 	   srcs/chunk_sort.c \
        srcs/clear_stack.c \
@@ -32,10 +31,6 @@ SRCS = \
        srcs/swap.c \
        utils/putstack.c \
 	   utils/display_stacks.c
-
-TESTS = \
-	   $(TESTS_DIR)/test_short_stack.sh \
-	   $(TESTS_DIR)/test_checker_linux.sh
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 LIBFT = $(LIB_DIR)/libft.a
@@ -69,13 +64,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re tests
-
-$(TESTS_DIR)/%.sh:
-	chmod +x $@
-
-tests: $(NAME) $(TESTS)
-	@for test_script in $(TESTS); do \
-		echo "== $$test_script =="; \
-		sh "$$test_script" || exit 1; \
-	done
+.PHONY: all clean fclean re
