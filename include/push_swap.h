@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/07 13:32:50 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/07 13:49:44 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@
 
 void			clear_context(t_context *ctx);
 void			clear_stack(t_stack *stack);
-void			display_stacks(t_context *ctx);
 t_stack			*load_stack(size_t size, char *nums[]);
-void			putstack(t_stack *s);
 void			init_operations_list(t_context *ctx);
 int				is_valid_int(char *s);
 int				ft_strcmp(const char *s1, const char *s2);

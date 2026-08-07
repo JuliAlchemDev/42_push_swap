@@ -28,9 +28,7 @@ SRCS = \
        srcs/rotate.c \
 	   srcs/select_sort.c \
 	   srcs/simple_sort.c \
-       srcs/swap.c \
-       utils/putstack.c \
-	   utils/display_stacks.c
+       srcs/swap.c
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 LIBFT = $(LIB_DIR)/libft.a
@@ -40,7 +38,7 @@ CC = cc
 FLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-VPATH = srcs utils
+VPATH = srcs
 
 all: $(NAME)
 
