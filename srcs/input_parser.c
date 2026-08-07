@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/06 20:09:01 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/07 12:20:53 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,19 @@ static t_context	*init_context(void)
 	t_context	*ctx;
 
 	ctx = malloc(sizeof(t_context));
+	ctx->a = NULL;
+	ctx->b = NULL;
 	ctx->bench_flag = 0;
 	ctx->strategy = NULL;
 	ctx->total_ops = 0;
 	init_operations_list(ctx);
 	return (ctx);
+}
+
+static	void	exit_no_numbers(t_context *ctx)
+{
+	clear_context(ctx);
+	exit (0);
 }
 
 t_context	*input_parser(int argc, char *argv[])
@@ -59,7 +67,7 @@ t_context	*input_parser(int argc, char *argv[])
 	if (!ctx->strategy)
 		ctx->strategy = "--adaptive";
 	if (argc - i == 0)
-		exit (0);
+		exit_no_numbers(ctx);
 	ctx->a = get_stack(argc - i, argv + i);
 	if (!ctx->a)
 		error(ctx);
