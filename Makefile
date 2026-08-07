@@ -8,7 +8,7 @@ SRCS = \
 	   srcs/chunk_sort.c \
        srcs/clear_stack.c \
 	   srcs/compute_disorder.c \
-	   srcs/error.c \
+	   srcs/exit_with_code.c \
 	   srcs/ft_putbench.c \
 	   srcs/ft_putdisorder.c \
 	   srcs/ft_strcmp.c \

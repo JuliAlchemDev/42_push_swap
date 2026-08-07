@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:52:57 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/07 12:20:53 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/07 13:41:37 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	is_strategy(char *s)
 
 static int	is_option(char *s)
 {
-	if (!ft_strncmp(s, "--", 2))
+	if (is_strategy(s)
+		|| !ft_strcmp(s, "--bench"))
 		return (1);
 	return (0);
 }
@@ -43,10 +44,22 @@ static t_context	*init_context(void)
 	return (ctx);
 }
 
-static	void	exit_no_numbers(t_context *ctx)
+static	void	set_option(char *option, t_context *ctx)
 {
-	clear_context(ctx);
-	exit (0);
+	if (is_strategy(option))
+	{
+		if (ctx->strategy == NULL)
+			ctx->strategy = option;
+		else
+			exit_with_code(1, ctx);
+	}
+	if (!ft_strcmp(option, "--bench"))
+	{
+		if (ctx->bench_flag)
+			exit_with_code(1, ctx);
+		else
+			ctx->bench_flag = 1;
+	}
 }
 
 t_context	*input_parser(int argc, char *argv[])
@@ -58,22 +71,19 @@ t_context	*input_parser(int argc, char *argv[])
 	i = 1;
 	while ((i < argc) && is_option(argv[i]))
 	{
-		if (is_strategy(argv[i]))
-			ctx->strategy = argv[i];
-		if (!ft_strcmp(argv[i], "--bench"))
-			ctx->bench_flag = 1;
+		set_option(argv[i], ctx);
 		i++;
 	}
 	if (!ctx->strategy)
 		ctx->strategy = "--adaptive";
 	if (argc - i == 0)
-		exit_no_numbers(ctx);
+		exit_with_code(0, ctx);
 	ctx->a = get_stack(argc - i, argv + i);
 	if (!ctx->a)
-		error(ctx);
+		exit_with_code(1, ctx);
 	ctx->disorder = compute_disorder(ctx->a);
 	ctx->b = load_stack(ctx->a->size, NULL);
 	if (!ctx->b)
-		error(ctx);
+		exit_with_code(1, ctx);
 	return (ctx);
 }

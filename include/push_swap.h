@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:44:21 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/06 18:51:30 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/07 13:32:50 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				is_valid_int(char *s);
 int				ft_strcmp(const char *s1, const char *s2);
 t_context		*input_parser(int argc, char *argv[]);
 t_stack			*get_stack(int size, char **nums);
-void			error(t_context *ctx);
+void			exit_with_code(int code, t_context *ctx);
 void			ft_putdisorder(float d);
 float			compute_disorder(t_stack *stack);
 void			ft_putbench(t_context *ctx);

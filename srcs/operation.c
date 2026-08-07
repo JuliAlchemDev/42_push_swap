@@ -6,7 +6,7 @@
 /*   By: aserio <aserio@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 18:00:44 by aserio            #+#    #+#             */
-/*   Updated: 2026/08/03 20:34:22 by aserio           ###   ########.fr       */
+/*   Updated: 2026/08/07 13:33:43 by aserio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_operations_list(t_context *ctx)
 {
 	ctx->ops = calloc(OP_COUNT, sizeof(t_op_prop));
 	if (!ctx->ops)
-		error(ctx);
+		exit_with_code(1, ctx);
 	init_operations_data(ctx->ops);
 }
 
